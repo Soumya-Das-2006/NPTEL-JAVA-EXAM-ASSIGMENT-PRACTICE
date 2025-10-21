@@ -1,0 +1,2713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPTEL Java Practice Platform</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --java-color: #f89820;
+            --c-color: #00599c;
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            padding: 0.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .week-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border-left: 4px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .week-card.java {
+            border-left-color: var(--java-color);
+        }
+        
+        .week-card.c-programming {
+            border-left-color: var(--c-color);
+        }
+        
+        .week-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .week-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .week-card .language-badge {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            color: white;
+            margin-left: auto;
+        }
+        
+        .java-badge {
+            background-color: var(--java-color);
+        }
+        
+        .c-badge {
+            background-color: var(--c-color);
+        }
+        
+        .week-card .progress {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .week-card .progress-bar {
+            height: 100%;
+            background-color: var(--success);
+            border-radius: 4px;
+        }
+        
+        .week-card .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .practice-area {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question-navigation {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .question-container {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .code-snippet {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .option:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .option.selected {
+            background-color: #e3f2fd;
+            border-color: var(--secondary);
+        }
+        
+        .option.correct {
+            background-color: #e8f5e9;
+            border-color: var(--success);
+        }
+        
+        .option.incorrect {
+            background-color: #ffebee;
+            border-color: var(--accent);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-secondary {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d0d0d0;
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+        
+        .btn-reset {
+            background-color: var(--warning);
+            color: white;
+        }
+        
+        .btn-reset:hover {
+            background-color: #e67e22;
+        }
+        
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border-left: 4px solid var(--secondary);
+            display: none;
+        }
+        
+        .explanation h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .score-board {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .score-item {
+            text-align: center;
+        }
+        
+        .score-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .score-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .language-filter {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .question-counter {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .attempt-counter {
+            font-size: 0.9rem;
+            color: var(--warning);
+            margin-bottom: 10px;
+        }
+        
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .nav-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: var(--gray);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: white;
+            transition: all 0.2s;
+        }
+        
+        .nav-btn.correct {
+            background: var(--success);
+        }
+        
+        .nav-btn.incorrect {
+            background: var(--warning);
+        }
+        
+        .nav-btn.current {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .content-section {
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .nav-link.active {
+            background-color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .question-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .controls button {
+                width: 100%;
+            }
+            
+            .score-board {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .quick-nav {
+                justify-content: center;
+            }
+            
+            .nav-btn {
+                width: 25px;
+                height: 25px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-icon">☕</span>
+            <h1>NPTEL Java Practice Platform</h1>
+        </div>
+        <p>Master Programming in Java with interactive exercises from all 12 weeks (120 Questions)</p>
+    </header>
+    
+    <nav>
+        <button class="nav-toggle" id="nav-toggle">☰</button>
+        <ul id="nav-menu">
+            <li><a href="#" class="nav-link active" data-target="dashboard">Dashboard</a></li>
+            <li><a href="#" class="nav-link" data-target="week0">Week 0</a></li>
+            <li><a href="#" class="nav-link" data-target="week1">Week 1</a></li>
+            <li><a href="#" class="nav-link" data-target="week2">Week 2</a></li>
+            <li><a href="#" class="nav-link" data-target="week3">Week 3</a></li>
+            <li><a href="#" class="nav-link" data-target="week4">Week 4</a></li>
+            <li><a href="#" class="nav-link" data-target="week5">Week 5</a></li>
+            <li><a href="#" class="nav-link" data-target="week6">Week 6</a></li>
+            <li><a href="#" class="nav-link" data-target="week7">Week 7</a></li>
+            <li><a href="#" class="nav-link" data-target="week8">Week 8</a></li>
+            <li><a href="#" class="nav-link" data-target="week9">Week 9</a></li>
+            <li><a href="#" class="nav-link" data-target="week10">Week 10</a></li>
+            <li><a href="#" class="nav-link" data-target="week11">Week 11</a></li>
+            <li><a href="#" class="nav-link" data-target="week12">Week 12</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="dashboard" class="content-section active">
+            <h2>Course Progress Dashboard</h2>
+            <p>Track your progress through all 12 weeks of NPTEL Programming in Java assignments.</p>
+            
+            <div class="score-board">
+                <div class="score-item">
+                    <div class="score-value" id="total-questions">120</div>
+                    <div class="score-label">Total Questions</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" id="completed">0</div>
+                    <div class="score-label">Completed</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" id="correct">0</div>
+                    <div class="score-label">Correct Answers</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-value" id="accuracy">0%</div>
+                    <div class="score-label">Accuracy</div>
+                </div>
+            </div>
+            
+            <div class="language-filter">
+                <button class="filter-btn active" data-filter="all">All Questions</button>
+                <button class="filter-btn" data-filter="java">Java Only</button>
+                <button class="filter-btn" data-filter="c">C Programming</button>
+            </div>
+            
+            <div class="dashboard">
+                <!-- Week cards will be dynamically generated -->
+            </div>
+        </section>
+        
+        <!-- Week Sections - Each week will be populated dynamically -->
+        <section id="week0" class="content-section"></section>
+        <section id="week1" class="content-section"></section>
+        <section id="week2" class="content-section"></section>
+        <section id="week3" class="content-section"></section>
+        <section id="week4" class="content-section"></section>
+        <section id="week5" class="content-section"></section>
+        <section id="week6" class="content-section"></section>
+        <section id="week7" class="content-section"></section>
+        <section id="week8" class="content-section"></section>
+        <section id="week9" class="content-section"></section>
+        <section id="week10" class="content-section"></section>
+        <section id="week11" class="content-section"></section>
+        <section id="week12" class="content-section"></section>
+    </div>
+    
+    <footer>
+        <p>NPTEL Programming in Java Practice Platform &copy; 2023</p>
+        <p>This is an unofficial practice tool for educational purposes.</p>
+    </footer>
+
+    <script>
+        // Complete dataset for all 12 weeks with 120 questions exactly as provided
+        const weeksData = [
+            {
+                id: 'week0',
+                name: 'Week 0: Assignment 1',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'What is the time complexity of accessing an element in an array by index?',
+                        options: ['a. O(1)', 'b. O(n)', 'c. O(log n)', 'd. O(n log n)'],
+                        correct: 0,
+                        explanation: 'Arrays provide direct access to elements using their index. The memory address of any element can be calculated directly using the formula: base_address + (index * element_size). This is a constant-time operation regardless of the array size.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'What is the following set of statements equivalent to? if (x==0) { x=1; } else if (x==1) { x=0; }',
+                        options: ['a. x = 1 + x;', 'b. x = x - 1;', 'c. x = 1 - x;', 'd. x = 1 % x;'],
+                        correct: 2,
+                        explanation: 'The code toggles between 0 and 1. When x=0, it becomes 1; when x=1, it becomes 0. The expression 1 - x achieves exactly this: if x=0, result is 1; if x=1, result is 0.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Given vectors u = (3, 2) and v = (-1, 4), what is the dot product u · v?',
+                        options: ['a. 10', 'b. 5', 'c. 11', 'd. 7'],
+                        correct: 1,
+                        explanation: 'Dot product = (3 × -1) + (2 × 4) = -3 + 8 = 5',
+                        language: 'c'
+                    },
+                    {
+                        id: 4,
+                        text: 'What is the modulus of the complex number z = 4 + 3i?',
+                        options: ['a. 5', 'b. 7', 'c. 4', 'd. 3'],
+                        correct: 0,
+                        explanation: 'Modulus = √(real² + imaginary²) = √(4² + 3²) = √(16 + 9) = √25 = 5',
+                        language: 'c'
+                    },
+                    {
+                        id: 5,
+                        text: 'What should be placed in the blank to find the maximum of three numbers?',
+                        options: ['a. if y > z then', 'b. if y < z then', 'c. if x > z then', 'd. if x < z then'],
+                        correct: 2,
+                        explanation: 'The pseudocode first compares x and y. If x > y, it sets max = x, but then it needs to check if this x is actually greater than z. So it needs if x > z then max = x else max = z.',
+                        language: 'c'
+                    },
+                    {
+                        id: 6,
+                        text: 'What condition should be placed to calculate sum of even numbers?',
+                        options: ['a. i % 2 == 0', 'b. i % 2 != 0', 'c. i % 2 == 1', 'd. i % 2 == -1'],
+                        correct: 0,
+                        explanation: 'Even numbers are divisible by 2, so i % 2 == 0 checks if i is even. The modulus operator gives remainder when i is divided by 2.',
+                        language: 'c'
+                    },
+                    {
+                        id: 7,
+                        text: 'What will be the 6th term in the sequence: 1, 8, 27, 64, 125, ...?',
+                        options: ['a. 216', 'b. 343', 'c. 512', 'd. 729'],
+                        correct: 0,
+                        explanation: 'The sequence represents cubes: 1³=1, 2³=8, 3³=27, 4³=64, 5³=125. The 6th term is 6³ = 216.',
+                        language: 'c'
+                    },
+                    {
+                        id: 8,
+                        text: 'What will be the output of foo(1)?',
+                        code: `int foo(int i) {
+    int x=1, j = 1;
+    while (i) {
+        x *= j;
+        j++;
+        if(j<3) continue;
+        else break;
+    }
+    return x;
+}`,
+                        options: ['a. Compilation error', 'b. 2', 'c. 3', 'd. Infinite loop'],
+                        correct: 1,
+                        explanation: 'i=1, so while loop executes. x = 1 * 1 = 1, j becomes 2. j<3 is true, so continue (skips break). Loop continues: x = 1 * 2 = 2, j becomes 3. j<3 is false, so break executes. Returns x=2.',
+                        language: 'c'
+                    },
+                    {
+                        id: 9,
+                        text: 'Which of the following is a "special number"?',
+                        options: ['a. 145', 'b. 123', 'c. 170', 'd. 153'],
+                        correct: 0,
+                        explanation: 'Special number = sum of factorial of digits equals the number itself. 145: 1! + 4! + 5! = 1 + 24 + 120 = 145 ✓',
+                        language: 'c'
+                    },
+                    {
+                        id: 10,
+                        text: 'What will be the output when n = 5?',
+                        code: `result = 1
+for i = 1 to n do
+    result = result * (i-1)
+print(result)`,
+                        options: ['a. 115', 'b. 120', 'c. 0', 'd. 1'],
+                        correct: 2,
+                        explanation: 'When i=1, result = 1 * (1-1) = 1 * 0 = 0. Once result becomes 0, all subsequent multiplications will keep it as 0.',
+                        language: 'c'
+                    }
+                ]
+            },
+            {
+                id: 'week1',
+                name: 'Week 1: Assignment 1',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which of the following is true?',
+                        options: ['a. Java uses only interpreter', 'b. Java uses only compiler', 'c. Java uses both interpreter and compiler', 'd. None of the above'],
+                        correct: 2,
+                        explanation: 'Java uses javac compiler to convert .java to .class (bytecode), and java interpreter to execute bytecode on JVM.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'A Java file with extension \'.class\' contains:',
+                        options: ['a. Java source code', 'b. HTML tags', 'c. Java Byte code', 'd. A program file written in Java programming language'],
+                        correct: 2,
+                        explanation: '.class files contain bytecode - intermediate code that JVM can execute.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Which is not an object-oriented programming paradigm?',
+                        options: ['a. Encapsulation', 'b. Inheritance', 'c. Polymorphism', 'd. Dynamic memory allocation'],
+                        correct: 3,
+                        explanation: 'Dynamic memory allocation is a memory management technique, not an OOP paradigm.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Java is platform independent because:',
+                        options: ['a. It compiles intermediate code targeting a virtual machine', 'b. Java compiler translates source code directly into machine-level language', 'c. It follows "write once and compile everywhere"', 'd. It is written similar to English language'],
+                        correct: 0,
+                        explanation: 'Java compiles to bytecode that runs on JVM, which is available for different platforms.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which is not a Language Processor?',
+                        options: ['a. Assembler', 'b. Compiler', 'c. Interpreter', 'd. Fortran'],
+                        correct: 3,
+                        explanation: 'Fortran is a programming language, not a language processor.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Which is/are Java platform component(s)?',
+                        options: ['a. HTML', 'b. Java Virtual Machine', 'c. Javascript', 'd. HotJava'],
+                        correct: 1,
+                        explanation: 'Java platform consists of JVM and Java API.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Correct sequence to execute a Java program:',
+                        options: ['a. Run → Edit → Compile', 'b. Edit → Run → Compile', 'c. Compile → Edit → Run', 'd. Edit → Compile → Run'],
+                        correct: 3,
+                        explanation: 'Standard Java development workflow: write code → compile → execute.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Primary difference between javac and java commands:',
+                        options: ['a. javac edits code, java runs programs', 'b. javac compiles to bytecode, java executes bytecode', 'c. javac executes programs, java compiles', 'd. Both compile Java programs'],
+                        correct: 1,
+                        explanation: 'javac = Java compiler, java = Java interpreter/launcher.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Which is not a feature of Java?',
+                        options: ['a. Platform Independence', 'b. Object-Oriented Programming', 'c. Supports Explicit Pointers', 'd. Supports Polymorphism'],
+                        correct: 2,
+                        explanation: 'Java doesn\'t support explicit pointers for security reasons.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Output of the code:',
+                        code: `class NPTEL {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}`,
+                        options: ['a. Hello, World!', 'b. HelloWorld!', 'c. Compilation Error', 'd. Runtime Error'],
+                        correct: 0,
+                        explanation: 'Standard Java program that prints "Hello, World!" to console.',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week2',
+                name: 'Week 2: Assignment 2',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'What does System.in stand for in Scanner declaration?',
+                        options: ['a. Any file storing data', 'b. Refers to standard input stream (keyboard by default)', 'c. Reference to scanner as input device', 'd. It is a mouse as input device'],
+                        correct: 1,
+                        explanation: 'System.in is the standard input stream, typically connected to keyboard.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Output of the program:',
+                        code: `public class VarPrint {
+    int x = 30;
+    static int y = 20;
+    
+    public static void main(String[] args) {
+        VarPrint t1 = new VarPrint();
+        t1.x = 88;
+        t1.y = 99;
+        int z1 = t1.x + t1.y;
+        VarPrint t2 = new VarPrint();
+        System.out.println(t2.x + " " + t2.y + " " + z1);
+    }
+}`,
+                        options: ['a. 30 99 178', 'b. 30 88 129', 'c. 30 99 187', 'd. 88 99 178'],
+                        correct: 2,
+                        explanation: 'Instance variable x: each object has its own copy (t2.x = 30). Static variable y: shared by all objects (t2.y = 99 after t1.y=99). z1 = 88 + 99 = 187. Output: "30 99 187"',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Output of the program:',
+                        code: `public class ArgumentTest {
+    public static void main(String[] args) {
+        Test t = new Test();
+        t.start();
+    }
+    
+    static class Test {
+        void start() {
+            int a = 4;
+            int b = 5;
+            System.out.print("" + 8 + 3 + "");
+            System.out.print(a + b);
+            System.out.print(" " + a + b + "");
+            System.out.print(foo() + a + b + "");
+            System.out.println(a + b + foo());
+        }
+        
+        String foo() {
+            return "foo";
+        }
+    }
+}`,
+                        options: ['a. 9 7 7 foo34 34foo', 'b. 839 45foo45 9foo', 'c. 72 34 34 foo34 34foo', 'd. 9 7 7 foo 7 7foo'],
+                        correct: 1,
+                        explanation: 'String concatenation rules: "" + 8 + 3 + "" = "83", a + b = 9, " " + a + b + "" = " 45", foo() + a + b + "" = "foo45", a + b + foo() = "9foo"',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'What is encapsulation in OOP?',
+                        options: ['a. Hiding implementation details and exposing only functionality', 'b. Creating multiple objects', 'c. Writing multiple methods in a class', 'd. Using this keyword'],
+                        correct: 0,
+                        explanation: 'Encapsulation bundles data and methods, hiding internal details while providing public interface.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which is true about constructors?',
+                        options: ['a. Constructors must have return type', 'b. Constructors initialize objects', 'c. A class can have only one constructor', 'd. Constructors cannot be overloaded'],
+                        correct: 1,
+                        explanation: 'Constructors don\'t have return types, can be overloaded, and a class can have multiple constructors.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'What does \'this\' keyword achieve?',
+                        options: ['a. Avoid name collision between instance variables and parameters', 'b. Overload methods', 'c. Access private methods in another class', 'd. Create multiple objects'],
+                        correct: 0,
+                        explanation: 'this refers to current object instance, used to distinguish instance variables from local variables.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Correct signature of main method:',
+                        options: ['a. public void main(String args[])', 'b. public static void main(String args[])', 'c. void main(String[] args)', 'd. public static void main(String[] args)'],
+                        correct: 3,
+                        explanation: 'JVM requires exact signature: public static void main(String[] args)',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Which is used to take runtime input in Java?',
+                        options: ['a. BufferedReader', 'b. Scanner', 'c. DataInputStream', 'd. All of the above'],
+                        correct: 3,
+                        explanation: 'All three classes can be used for input operations in Java.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Which method formats output in Java?',
+                        options: ['a. print()', 'b. println()', 'c. printf()', 'd. format()'],
+                        correct: 2,
+                        explanation: 'printf() provides formatted output similar to C\'s printf.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Which class primarily reads input from console?',
+                        options: ['a. Scanner', 'b. BufferedReader', 'c. Console', 'd. DataInputStream'],
+                        correct: 0,
+                        explanation: 'Scanner is most commonly used for console input due to its simplicity.',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week3',
+                name: 'Week 3: Assignment 3',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which is true about super keyword?',
+                        options: ['a. super can call parent class constructor', 'b. super accesses private variables of parent', 'c. super calls static method in parent', 'd. super can only be used inside static method'],
+                        correct: 0,
+                        explanation: 'super() calls parent constructor, super.method() calls overridden parent method.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Output of the program:',
+                        code: `class StaticScopeDemo {
+    static int x = 5;
+    
+    public static void main(String[] args) {
+        int x = 10;
+        {
+            int x = 15;
+            System.out.println(x);
+        }
+    }
+}`,
+                        options: ['a. 15', 'b. Compilation Error', 'c. 5', 'd. 10'],
+                        correct: 1,
+                        explanation: 'Cannot redeclare variable \'x\' in the same scope. The inner block tries to declare another x when x is already declared in main method.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Output of the program:',
+                        code: `class Parent {
+    void display() {
+        System.out.println("Parent display");
+    }
+}
+
+class Child extends Parent {
+    void display() {
+        System.out.println("Child display");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent obj = new Child();
+        obj.display();
+    }
+}`,
+                        options: ['a. Parent display', 'b. Child display', 'c. Compilation Error', 'd. Runtime Error'],
+                        correct: 1,
+                        explanation: 'This is method overriding with dynamic method dispatch. At runtime, JVM calls the actual object\'s method (Child\'s display).',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Which is correct about abstract classes?',
+                        options: ['a. Abstract classes can be instantiated directly', 'b. Abstract class must contain at least one abstract method', 'c. Class inheriting abstract class must implement all abstract methods unless itself abstract', 'd. Abstract classes can be marked as final'],
+                        correct: 2,
+                        explanation: 'Abstract classes cannot be instantiated, may have zero abstract methods, and cannot be final.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Output of factorial program:',
+                        code: `public class NptelExample {
+    public static int fun(int n) {
+        if (n == 0) return 1;
+        return n * fun(n - 1);
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(fun(5));
+    }
+}`,
+                        options: ['a. 5', 'b. 24', 'c. 120', 'd. Runtime Error'],
+                        correct: 2,
+                        explanation: 'Recursive factorial: 5! = 5 × 4 × 3 × 2 × 1 = 120',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Which is NOT true about final keyword?',
+                        options: ['a. Final method cannot be overridden', 'b. Final variable can only be assigned once', 'c. Final class can have subclasses', 'd. Final variable assigned during declaration or constructor'],
+                        correct: 2,
+                        explanation: 'Final classes cannot be extended (cannot have subclasses).',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Output of the program:',
+                        code: `class Test {
+    static int count = 0;
+    
+    public Test() {
+        count++;
+    }
+    
+    public static void main(String[] args) {
+        Test obj1 = new Test();
+        Test obj2 = new Test();
+        Test obj3 = new Test();
+        System.out.println("Count: " + Test.count);
+    }
+}`,
+                        options: ['a. Count: 0', 'b. Compilation Error', 'c. Runtime Error', 'd. Count: 3'],
+                        correct: 3,
+                        explanation: 'Static variable \'count\' is shared by all instances. Each constructor call increments it.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Which is NOT method overriding?',
+                        options: ['a. Subclass defining method with same name but different parameters', 'b. Subclass providing new implementation for superclass method', 'c. Subclass defining method with same name and parameters', 'd. Using super to call superclass version'],
+                        correct: 0,
+                        explanation: 'Different parameters means method overloading, not overriding.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Output of the program:',
+                        code: `class Parent {
+    String message() { return "Parent"; }
+}
+
+class Child extends Parent {
+    String message() { return "Child"; }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child p = new Parent();
+        System.out.println(p.message());
+    }
+}`,
+                        options: ['a. Parent', 'b. Child', 'c. Compilation Error', 'd. No output'],
+                        correct: 2,
+                        explanation: 'Cannot assign Parent object to Child reference (incompatible types).',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Output of recursive sum program:',
+                        code: `public class Nptel {
+    public static int fun(int n) {
+        if (n == 0) return 0;
+        return n + fun(n - 1);
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(fun(5));
+    }
+}`,
+                        options: ['a. 5', 'b. 10', 'c. 15', 'd. Runtime Error'],
+                        correct: 2,
+                        explanation: 'Sum of first 5 natural numbers: 5 + 4 + 3 + 2 + 1 = 15',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week4',
+                name: 'Week 4: Assignment 4',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which access modifier allows access within same package but not outside?',
+                        options: ['a. default', 'b. private', 'c. public', 'd. protected'],
+                        correct: 0,
+                        explanation: 'Default (no modifier) access allows package-level access only.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'What happens when accessing private method from another class?',
+                        options: ['a. Method will be accessible', 'b. Method will throw exception', 'c. Method will be inaccessible', 'd. Method will be converted to protected'],
+                        correct: 2,
+                        explanation: 'Private methods are accessible only within their own class.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Output of inheritance program:',
+                        code: `class Person {
+    int a = 1; int b = 0;
+    public Person() {
+        System.out.println(a + b + " Java ");
+    }
+}
+
+class Employee extends Person {
+    int a = 0; int b = 1;
+    public Employee() {
+        System.out.println(a * b + " Java ");
+    }
+}
+
+public class Question {
+    public static void main(String args[]) {
+        Person p = new Employee();
+    }
+}`,
+                        options: ['a. 1 Java 0 Java', 'b. 1 Java 0 Java', 'c. 10 Java 0 Java', 'd. 1 java 1 0 Java 0'],
+                        correct: 0,
+                        explanation: 'Person constructor runs first: 1 + 0 = 1, prints "1 Java". Employee constructor runs: 0 × 1 = 0, prints "0 Java".',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Which is a built-in Java package?',
+                        options: ['a. java.util', 'b. my.package.util', 'c. default.package', 'd. system.java'],
+                        correct: 0,
+                        explanation: 'java.util is standard Java package containing utility classes.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Keyword to define a package:',
+                        options: ['a. define', 'b. package', 'c. import', 'd. namespace'],
+                        correct: 1,
+                        explanation: 'package keyword declares the package for a class.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'How to import specific class from package?',
+                        options: ['a. import package.*;', 'b. import package.ClassName;', 'c. include package.ClassName;', 'd. use package.ClassName;'],
+                        correct: 1,
+                        explanation: 'import package.ClassName; imports specific class.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'How many errors in the program?',
+                        code: `class Base {
+    public void print() {
+        System.out.println("Base class...");
+    }
+}
+
+class Derived extends Base {
+    public void print() {
+        System.out.println("Derived class...");
+    }
+}
+
+public class Main {
+    private static void main(String[] args) {
+        Base b = new Base();
+        b.print();
+        Derived d = new Derived();
+        d.print();
+    }
+}`,
+                        options: ['a. None', 'b. 1', 'c. 2', 'd. 3'],
+                        correct: 1,
+                        explanation: 'main method must be public, not private.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Which is true about Java interfaces?',
+                        options: ['a. Cannot contain method implementations', 'b. Can extend multiple classes', 'c. Can only contain abstract methods', 'd. Allow multiple inheritance'],
+                        correct: 3,
+                        explanation: 'A class can implement multiple interfaces, achieving multiple inheritance of types.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'What happens if no access modifier for class in package?',
+                        options: ['a. Class will be private by default', 'b. Class will be protected by default', 'c. Class accessible only within same package', 'd. Class will be public by default'],
+                        correct: 2,
+                        explanation: 'Default access is package-private.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Which access modifier provides most restrictive access?',
+                        options: ['a. default', 'b. protected', 'c. private', 'd. public'],
+                        correct: 2,
+                        explanation: 'Private is most restrictive - accessible only within same class.',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week5',
+                name: 'Week 5: Assignment 5',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which is true about finally block?',
+                        options: ['a. I and II', 'b. II and III', 'c. I, II and III', 'd. I, II, III and IV'],
+                        correct: 3,
+                        explanation: 'All statements are correct about finally block.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Output of interface program:',
+                        code: `interface A {
+    int x = 10;
+    void display();
+}
+
+class B implements A {
+    public void display() {
+        System.out.println("Value of x: " + x);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        B obj = new B();
+        obj.display();
+    }
+}`,
+                        options: ['a. Value of x: 10', 'b. Value of x: 0', 'c. Compilation Error', 'd. Runtime Error'],
+                        correct: 0,
+                        explanation: 'Interface variables are public, static, and final by default. They can be accessed directly.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Output of exception program:',
+                        code: `class NPTEL {
+    public static void main(String[] args) {
+        try {
+            int a = 5;
+            int b = 0;
+            System.out.println(a / b);
+        } catch (ArithmeticException e) {
+            System.out.print("Error ");
+        } finally {
+            System.out.print("Complete");
+        }
+    }
+}`,
+                        options: ['a. 5 Complete', 'b. Error Complete', 'c. Runtime Error', 'd. Compilation Error'],
+                        correct: 1,
+                        explanation: 'ArithmeticException is caught, printing "Error", then finally block executes printing "Complete".',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Which is TRUE about abstract class and interface?',
+                        options: ['a. I, II and III', 'b. II only', 'c. I and II only', 'd. II and III only'],
+                        correct: 0,
+                        explanation: 'All three statements are correct about differences between abstract classes and interfaces.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which is a checked exception?',
+                        options: ['a. NullPointerException', 'b. ArrayIndexOutOfBoundsException', 'c. IOException', 'd. ArithmeticException'],
+                        correct: 2,
+                        explanation: 'IOException is a checked exception that must be handled, while others are unchecked exceptions.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Which keyword is NOT used in exception handling?',
+                        options: ['a. try', 'b. catch', 'c. final', 'd. finally'],
+                        correct: 2,
+                        explanation: 'final is used for constants and preventing inheritance, not for exception handling.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Purpose of throws keyword:',
+                        options: ['a. To declare exceptions that method can throw', 'b. To throw exception immediately', 'c. To catch exception', 'd. Not a keyword in Java'],
+                        correct: 0,
+                        explanation: 'throws clause in method signature declares exceptions that the method might throw.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Which is TRUE about interfaces?',
+                        options: ['a. Interfaces should always be final', 'b. Interfaces can be instantiated directly', 'c. Interfaces can extend multiple interfaces', 'd. Interfaces cannot have method signatures'],
+                        correct: 2,
+                        explanation: 'Interfaces support multiple inheritance through extending multiple interfaces.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Output of interface implementation:',
+                        code: `interface Demo {
+    void display();
+}
+
+class Test implements Demo {
+    public void display() {
+        System.out.println("Hello, NPTEL!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Test obj = new Test();
+        obj.display();
+    }
+}`,
+                        options: ['a. Hello, NPTEL!', 'b. Compilation Error', 'c. Runtime Error', 'd. No Output'],
+                        correct: 0,
+                        explanation: 'Test class properly implements Demo interface and provides display() method implementation.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Output of inheritance with interfaces:',
+                        code: `interface Calculator {
+    void calculate(int value);
+}
+
+class Square implements Calculator {
+    int result;
+    public void calculate(int value) {
+        result = value * value;
+        System.out.print("Square: " + result + " ");
+    }
+}
+
+class Cube extends Square {
+    public void calculate(int value) {
+        result = value * value * value;
+        super.calculate(value);
+        System.out.print("Cube: " + result + " ");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator obj = new Cube();
+        obj.calculate(3);
+    }
+}`,
+                        options: ['a. Square: 9 Cube: 9', 'b. Cube: 27 Square: 9', 'c. Square: 9 Square: 27 Cube: 27', 'd. Square: 9 Cube: 27 Square: 27'],
+                        correct: 0,
+                        explanation: 'Cube\'s calculate() calls super.calculate(3) which calculates 3²=9, then Cube prints "Cube: 9" (result was overwritten to 9 by super call).',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week6',
+                name: 'Week 6: Assignment 6',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Output of thread program:',
+                        code: `class MyThread extends Thread {
+    public void run() {
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Running thread: " + i);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        thread.run();
+        System.out.println("Main method complete.");
+    }
+}`,
+                        options: ['a. Running thread: 0, Running thread: 1, Running thread: 2, Main method complete', 'b. Running thread: 0, Main method complete, Running thread: 1, Running thread: 2', 'c. Main method complete', 'd. Error: thread not started using start()'],
+                        correct: 0,
+                        explanation: 'Calling run() directly executes it in main thread, not in new thread. So it runs sequentially.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Best describes multithreading:',
+                        options: ['a. Multiple threads execute concurrently, sharing same memory space', 'b. Only one thread executes at a time', 'c. Threads cannot communicate with each other', 'd. Threads require separate memory allocation'],
+                        correct: 0,
+                        explanation: 'Threads share the same memory space but have their own execution context.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'What happens when starting thread twice:',
+                        code: `class ExampleThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ExampleThread thread = new ExampleThread();
+        thread.start();
+        thread.start();
+    }
+}`,
+                        options: ['a. Prints "Thread is running" twice', 'b. Throws error when starting thread second time', 'c. Terminates without output', 'd. Thread runs only once'],
+                        correct: 1,
+                        explanation: 'A thread cannot be started more than once. It throws IllegalThreadStateException.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Error in Runnable program:',
+                        code: `class RunnableExample implements Runnable {
+    public void run() {
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("Runnable thread: " + i);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        RunnableExample runnable = new RunnableExample();
+        runnable.run();
+        System.out.println("Main method ends.");
+    }
+}`,
+                        options: ['a. Error because Runnable cannot be executed directly', 'b. Runs successfully but no new thread created', 'c. Creates new thread and executes concurrently', 'd. Runtime error because Thread not used'],
+                        correct: 1,
+                        explanation: 'Calling run() directly doesn\'t create new thread. Need to use Thread object with Runnable.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Output of proper thread creation:',
+                        code: `class RunnableExample implements Runnable {
+    public void run() {
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("Thread running: " + i);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        RunnableExample task = new RunnableExample();
+        Thread thread = new Thread(task);
+        thread.start();
+    }
+}`,
+                        options: ['a. Compile-time error', 'b. run() method runs in new thread', 'c. run() method runs on main thread', 'd. Runtime error'],
+                        correct: 1,
+                        explanation: 'Using Thread constructor with Runnable and calling start() creates new thread.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Thread states in lifecycle:',
+                        options: ['a. New, Runnable, Running, Blocked', 'b. New, Runnable, Waiting, Blocked, Terminated', 'c. New, Runnable, Running, Sleeping, Dead', 'd. New, Active, Waiting, Suspended, Terminated'],
+                        correct: 1,
+                        explanation: 'These are the standard thread states in Java.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'What does thread scheduler use?',
+                        options: ['a. Thread priority', 'b. Thread\'s execution time', 'c. Thread name', 'd. Thread creation order'],
+                        correct: 0,
+                        explanation: 'Thread scheduler uses priority as hint, but actual scheduling depends on OS.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'About thread priorities:',
+                        options: ['a. Higher priority guaranteed to execute first', 'b. Lower priority never executes', 'c. Order depends on JVM and OS scheduling', 'd. Error due to invalid priority values'],
+                        correct: 2,
+                        explanation: 'Priority is just a hint; actual execution order depends on system scheduler.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Primary purpose of thread synchronization:',
+                        options: ['a. Allow multiple threads to execute method simultaneously', 'b. Ensure specific execution order', 'c. Prevent race conditions and ensure data consistency', 'd. Allow threads to communicate'],
+                        correct: 2,
+                        explanation: 'Synchronization prevents multiple threads from accessing shared resources simultaneously.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Difference between Byte Streams and Character Streams:',
+                        options: ['a. Byte Streams handle characters, Character Streams handle bytes', 'b. Byte Streams for binary data, Character Streams for text data', 'c. Character Streams always faster', 'd. Character Streams cannot handle Unicode'],
+                        correct: 1,
+                        explanation: 'Byte streams (InputStream/OutputStream) handle raw bytes, character streams (Reader/Writer) handle text with encoding.',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week7',
+                name: 'Week 7: Assignment 7',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Output of file reading program:',
+                        code: `import java.io.*;
+class ReadFile {
+    public static void main(String[] args) throws IOException {
+        FileReader fr = new FileReader("NPTEL.txt");
+        BufferedReader br = new BufferedReader(fr);
+        System.out.println(br.readLine());
+        br.close();
+    }
+}`,
+                        options: ['a. Hello, World!', 'b. This is Programming in Java online course', 'c. IOException', 'd. null'],
+                        correct: 1,
+                        explanation: 'BufferedReader reads first line from file containing the specified text.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Class to write primitive data types:',
+                        options: ['a. FileWriter', 'b. DataOutputStream', 'c. PrintWriter', 'd. BufferedOutputStream'],
+                        correct: 1,
+                        explanation: 'DataOutputStream has methods like writeInt(), writeDouble() for primitive types.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Output of RandomAccessFile:',
+                        code: `import java.io.*;
+class RandomAccessFileExample {
+    public static void main(String[] args) throws IOException {
+        RandomAccessFile file = new RandomAccessFile("test.dat", "rw");
+        file.writeInt(100);
+        file.seek(0);
+        System.out.println(file.readInt());
+        file.close();
+    }
+}`,
+                        options: ['a. 0', 'b. Runtime Error', 'c. Compilation Error', 'd. 100'],
+                        correct: 3,
+                        explanation: 'Writes integer 100, seeks back to start, reads and prints the same value.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Method to check if file exists:',
+                        options: ['a. file.exists()', 'b. file.isFile()', 'c. file.fileExists()', 'd. file.isAvailable()'],
+                        correct: 0,
+                        explanation: 'File.exists() returns boolean indicating if file/directory exists.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Output of SequenceInputStream:',
+                        code: `import java.io.*;
+class SequenceInputStreamExample {
+    public static void main(String[] args) throws IOException {
+        ByteArrayInputStream input1 = new ByteArrayInputStream("123".getBytes());
+        ByteArrayInputStream input2 = new ByteArrayInputStream("ABC".getBytes());
+        SequenceInputStream sequence = new SequenceInputStream(input1, input2);
+        
+        int i;
+        while ((i = sequence.read()) != -1) {
+            System.out.print((char) i);
+        }
+    }
+}`,
+                        options: ['a. 123ABC', 'b. ABC123', 'c. Compilation Error', 'd. Runtime Error'],
+                        correct: 0,
+                        explanation: 'SequenceInputStream concatenates multiple input streams sequentially.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Output of final variable program:',
+                        code: `class Main {
+    public static void main(String args[]) {
+        final int i;
+        i = 20;
+        i = 30;
+        System.out.println(i);
+    }
+}`,
+                        options: ['a. 30', 'b. Compiler Error', 'c. Garbage value', 'd. 0'],
+                        correct: 1,
+                        explanation: 'Final variables can be assigned only once. Second assignment causes compilation error.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Output of CharArrayReader:',
+                        code: `import java.io.*;
+class Chararrayinput {
+    public static void main(String[] args) {
+        String obj = "abcdefgh";
+        int length = obj.length();
+        char c[] = new char[length];
+        obj.getChars(0, length, c, 0);
+        CharArrayReader input1 = new CharArrayReader(c);
+        CharArrayReader input2 = new CharArrayReader(c, 1, 4);
+        int i, j;
+        try {
+            while ((i = input1.read()) == (j = input2.read())) {
+                System.out.print((char) i);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}`,
+                        options: ['a. abc', 'b. abcd', 'c. abcde', 'd. none of the mentioned'],
+                        correct: 3,
+                        explanation: 'input1 starts with \'a\', input2 starts with \'b\'. Since they are unequal, while loop condition fails immediately, no output.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Output of Calculator class:',
+                        code: `public class Calculator {
+    int num = 100;
+    public void calc(int num) {
+        this.num = num * 10;
+    }
+    public void printNum() {
+        System.out.println(num);
+    }
+    public static void main(String[] args) {
+        Calculator obj = new Calculator();
+        obj.calc(2);
+        obj.printNum();
+    }
+}`,
+                        options: ['a. 20', 'b. 100', 'c. 1000', 'd. 2'],
+                        correct: 0,
+                        explanation: 'this.num refers to instance variable, num refers to parameter. calc(2) sets instance variable to 2×10=20.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Output of PrintWriter:',
+                        code: `import java.io.*;
+public class W7 {
+    public static void main(String[] args) {
+        try {
+            PrintWriter writer = new PrintWriter(System.out);
+            writer.write(9 + 97);
+            writer.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}`,
+                        options: ['a. Compile-time error', 'b. Run-time error', 'c. j', 'd. 106'],
+                        correct: 2,
+                        explanation: '9 + 97 = 106, which is Unicode for character \'j\'. write(int) writes the character.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Output of file size program:',
+                        code: `import java.io.File;
+class FileSizeSample {
+    public static void main(String[] args) {
+        String filePath = "file.txt";
+        File file = new File(filePath);
+        long fileSize = file.length();
+        System.out.println(fileSize);
+    }
+}`,
+                        options: ['a. 42', 'b. 35', 'c. 7', 'd. 0'],
+                        correct: 0,
+                        explanation: 'File.length() returns size in bytes. "This is Programming in Java online course." has 42 characters including spaces and period.',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week8',
+                name: 'Week 8: Assignment 8',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Difference between checkbox and radio button:',
+                        options: ['a. Checkbox for single selection, radio for multiple', 'b. Checkbox for multiple selection, radio for single', 'c. Both for multiple and single selection', 'd. Checkbox always preferred'],
+                        correct: 1,
+                        explanation: 'Checkboxes allow multiple selections, radio buttons allow only one selection in a group.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Latest graphics package for Java:',
+                        options: ['a. Applet', 'b. AWT', 'c. Swing', 'd. JavaFX'],
+                        correct: 3,
+                        explanation: 'JavaFX is the modern replacement for Swing and AWT.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Which is NOT an exception of java.awt package?',
+                        options: ['a. HeadlessException', 'b. AWTException', 'c. FontFormatException', 'd. IllegalStateException'],
+                        correct: 3,
+                        explanation: 'IllegalStateException is in java.lang package, not java.awt.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'False about update() in java.awt:',
+                        options: ['a. Sets color of graphics context', 'b. Calls component\'s paint method', 'c. Updates component by checking online repository', 'd. Clears component with background color'],
+                        correct: 2,
+                        explanation: 'update() doesn\'t check online repositories; it\'s for GUI repainting.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Method to remove all items from scrolling list:',
+                        options: ['a. hide()', 'b. remove()', 'c. clear()', 'd. close()'],
+                        correct: 2,
+                        explanation: 'clear() method removes all items from AWT List component.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Layout manager for single row/column:',
+                        options: ['a. FlowLayout', 'b. BorderLayout', 'c. GridLayout', 'd. CardLayout'],
+                        correct: 0,
+                        explanation: 'FlowLayout arranges components in a row, wrapping to next row if needed.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'What does "AWT" stand for?',
+                        options: ['a. Abstract Widget Toolkit', 'b. Advanced Window Toolkit', 'c. Abstract Window Toolkit', 'd. Advanced Widget Toolkit'],
+                        correct: 2,
+                        explanation: 'AWT = Abstract Window Toolkit, Java\'s original GUI framework.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'AWT component to create button:',
+                        options: ['a. Label', 'b. Button', 'c. TextField', 'd. Checkbox'],
+                        correct: 1,
+                        explanation: 'Button class creates clickable buttons in AWT.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'About given GUI with First Name, Last Name:',
+                        options: ['a. Frame and two TextFields', 'b. Frame with two Labels and two non-editable TextFields', 'c. Two Labels', 'd. Frame with two Labels and two TextFields'],
+                        correct: 3,
+                        explanation: 'Typical form layout with labels and corresponding text fields.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'True about checkbox in Java:',
+                        options: ['a. Cannot be in on/off state', 'b. Clicking changes state from on to off or off to on', 'c. Can be in both on and off state simultaneously', 'd. Cannot be grouped together'],
+                        correct: 1,
+                        explanation: 'Checkboxes toggle between selected (on) and unselected (off) states.',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week9',
+                name: 'Week 9: Assignment 9',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Swing component for drop-down list:',
+                        options: ['a. JButton', 'b. JComboBox', 'c. JTextField', 'd. JPanel'],
+                        correct: 1,
+                        explanation: 'JComboBox provides drop-down list functionality in Swing.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Output of Swing frame with buttons:',
+                        code: `import javax.swing.*;
+import java.awt.*;
+public class SwingExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Example");
+        frame.setLayout(new FlowLayout());
+        frame.add(new JButton("Button 1"));
+        frame.add(new JButton("Button 2"));
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}`,
+                        options: ['a. Frame with two buttons "Button 1" and "Button 2"', 'b. Frame with only "Button 2"', 'c. Compilation Error', 'd. Runtime Error'],
+                        correct: 0,
+                        explanation: 'FlowLayout arranges both buttons in a row within the frame.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'True about JLabel:',
+                        options: ['a. Used only for displaying text', 'b. Can display text and icons', 'c. Cannot be added to JPanel', 'd. Generates mouse events by default'],
+                        correct: 1,
+                        explanation: 'JLabel can display both text and images/icons.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Method to handle mouse click events:',
+                        options: ['a. mouseClicked()', 'b. keyPressed()', 'c. actionPerformed()', 'd. componentShown()'],
+                        correct: 0,
+                        explanation: 'mouseClicked() is part of MouseListener interface for mouse click events.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Code to create JFrame with JButton:',
+                        code: `import javax.swing.*;
+public class FrameExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Demo Frame");
+        JButton button = new JButton("Click Me");
+        // INSERT CODE HERE
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+    }
+}`,
+                        options: ['a. frame.add(button);', 'b. frame.insert(button);', 'c. frame.append(button);', 'd. frame.push(button);'],
+                        correct: 0,
+                        explanation: 'add() method adds components to containers in Swing.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Correct layout manager setting:',
+                        code: `panel.setFlowLayout(); // ERROR`,
+                        options: ['a. panel.setLayout(new GridLayout());', 'b. panel.addFlowLayout();', 'c. panel.appendLayout(new FlowLayout());', 'd. panel.setLayout(new FlowLayout());'],
+                        correct: 3,
+                        explanation: 'setLayout() method takes LayoutManager object as parameter.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Output of label program:',
+                        code: `import javax.swing.*;
+public class LabelExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Label Demo");
+        JLabel label = new JLabel("Welcome to Swing");
+        frame.setSize(250, 100);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}`,
+                        options: ['a. Frame with label "Welcome to Swing"', 'b. Frame with no visible label', 'c. Compilation Error', 'd. Runtime Error'],
+                        correct: 1,
+                        explanation: 'Label is created but not added to frame using add() method.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'What does the code do?',
+                        code: `import javax.swing.*;
+public class NPTEL extends JFrame {
+    JButton button;
+    public NPTEL() {
+        button = new JButton("Programming in Java");
+        add(button);
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+    public static void main(String[] args) {
+        new NPTEL();
+    }
+}`,
+                        options: ['a. Creates JFrame with JButton "Programming in Java"', 'b. Compiles with errors', 'c. Displays message dialog', 'd. Creates JPanel with JButton'],
+                        correct: 0,
+                        explanation: 'Extends JFrame and adds button to it, creating a working GUI window.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'What happens when button is clicked?',
+                        code: `import javax.swing.*;
+import java.awt.event.*;
+public class NPTEL {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("NPTEL Java Course");
+        JButton button = new JButton("Click Me");
+        button.setBounds(50, 100, 100, 40);
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Welcome to the course");
+            }
+        });
+        frame.add(button);
+        frame.setSize(300, 200);
+        frame.setLayout(null);
+        frame.setVisible(true);
+    }
+}`,
+                        options: ['a. Program exits', 'b. Message dialog "Welcome to the course" displayed', 'c. Button label changes', 'd. Nothing happens'],
+                        correct: 1,
+                        explanation: 'ActionListener shows message dialog when button is clicked.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Layout manager for column with extra space:',
+                        options: ['a. BoxLayout', 'b. FlowLayout', 'c. BorderLayout', 'd. GridLayout'],
+                        correct: 0,
+                        explanation: 'BoxLayout can arrange components vertically with configurable spacing.',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week10',
+                name: 'Week 10: Assignment 10',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Swing component to create button:',
+                        options: ['a. JLabel', 'b. JButton', 'c. JTextField', 'd. JPanel'],
+                        correct: 1,
+                        explanation: 'JButton is Swing\'s button component.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'What does toggle button do?',
+                        options: ['a. Switches between two states like on/off', 'b. Changes color when clicked', 'c. Displays text inside button', 'd. Opens new window when clicked'],
+                        correct: 0,
+                        explanation: 'Toggle buttons maintain selected/unselected state.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Primary purpose of SQL in Java:',
+                        options: ['a. Create and manage user interfaces', 'b. Interact with databases for data retrieval and manipulation', 'c. Perform system-level operations', 'd. Handle memory allocation'],
+                        correct: 1,
+                        explanation: 'SQL (Structured Query Language) is used for database operations.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Method to check if network interface is up:',
+                        options: ['a. isActive()', 'b. isUp()', 'c. isRunning()', 'd. isConnected()'],
+                        correct: 1,
+                        explanation: 'NetworkInterface.isUp() checks if network interface is enabled.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Basic networking components in Java:',
+                        options: ['a. Socket and ServerSocket', 'b. String and Integer', 'c. JFrame and JButton', 'd. Scanner and System'],
+                        correct: 0,
+                        explanation: 'Socket (client) and ServerSocket (server) are fundamental networking classes.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'About URL https://nptel.ac.in:',
+                        options: ['a. No protocol provided', 'b. Website provides secure connection', 'c. Link is incomplete', 'd. ac.in refers to domain'],
+                        correct: 1,
+                        explanation: 'https:// indicates secure HTTP connection using SSL/TLS.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Which is application layer protocol?',
+                        options: ['a. TCP', 'b. UDP', 'c. ARP', 'd. SMTP'],
+                        correct: 3,
+                        explanation: 'SMTP (Simple Mail Transfer Protocol) is application layer protocol. TCP/UDP are transport layer, ARP is network layer.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'What does JDBC code do?',
+                        code: `import java.sql.*;
+public class NPTEL {
+    public static void main(String[] args) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/mydatabase",
+                "username", "password");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM employees");
+            while (rs.next()) {
+                System.out.println(rs.getString(1)+" "+rs.getString(2));
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}`,
+                        options: ['a. Connects to MySQL, retrieves and prints employee data', 'b. Inserts data into employees table', 'c. Deletes data from employees table', 'd. Updates data in employees table'],
+                        correct: 0,
+                        explanation: 'executeQuery() with SELECT statement retrieves data from database.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Class providing URL methods:',
+                        options: ['a. URLConnection', 'b. HttpURL', 'c. NetURL', 'd. URL'],
+                        correct: 3,
+                        explanation: 'URL class represents Uniform Resource Locator and provides related methods.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Class to create server socket:',
+                        options: ['a. Socket', 'b. ServerSocket', 'c. DatagramSocket', 'd. HttpURLConnection'],
+                        correct: 1,
+                        explanation: 'ServerSocket listens for incoming connections on specific port.',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week11',
+                name: 'Week 11: Assignment 11',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Full form of JDBC:',
+                        options: ['a. Java Database Connectivity', 'b. Java Data Code', 'c. Java Data Communication', 'd. Java Development Connectivity'],
+                        correct: 0,
+                        explanation: 'JDBC = Java Database Connectivity API.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Code to establish MySQL connection:',
+                        code: `Connection connection = // INSERT CODE HERE;`,
+                        options: ['a. DriverManager.connect("mysql:localhost:mydb", "user", "password");', 'b. DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "user", "password");', 'c. Connection.get("jdbc:mysql://localhost:3306/mydb", "user", "password");', 'd. Driver.connect("jdbc:mysql://localhost:mydb", "user", "password");'],
+                        correct: 1,
+                        explanation: 'DriverManager.getConnection() is standard way to get database connection.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Correct statement for ResultSet:',
+                        code: `ResultSet rs = stmt.execute("SELECT * FROM users"); // Error`,
+                        options: ['a. ResultSet rs = stmt.executeQuery("SELECT * FROM users");', 'b. ResultSet rs = stmt.runQuery("SELECT * FROM users");', 'c. ResultSet rs = stmt.execute("users SELECT * FROM");', 'd. ResultSet rs = stmt.fetch("SELECT * FROM users");'],
+                        correct: 0,
+                        explanation: 'executeQuery() is used for SELECT statements that return ResultSet.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Output of database program:',
+                        code: `import java.sql.*;
+public class DisplayProducts {
+    public static void main(String[] args) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/store", "root", "pass");
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT name FROM products");
+            while (rs.next()) {
+                System.out.println(rs.getString("name"));
+            }
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}`,
+                        options: ['a. Compilation Error', 'b. Runtime Error', 'c. Laptop Phone Tablet', 'd. No Output'],
+                        correct: 2,
+                        explanation: 'Program fetches and prints all product names from database.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Code for PreparedStatement:',
+                        code: `PreparedStatement pstmt = // INSERT CODE HERE;`,
+                        options: ['a. conn.createStatement(query);', 'b. conn.prepareStatement(query);', 'c. conn.execute(query);', 'd. conn.runStatement(query);'],
+                        correct: 1,
+                        explanation: 'prepareStatement() creates PreparedStatement for parameterized queries.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'SQL operations for executeUpdate:',
+                        options: ['a. I, II, and III', 'b. Only I and II', 'c. Only I', 'd. I, II, III and IV'],
+                        correct: 0,
+                        explanation: 'executeUpdate() is for INSERT, UPDATE, DELETE (data modification), not SELECT.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Purpose of DriverManager class:',
+                        options: ['a. Manage database connections', 'b. Execute SQL queries', 'c. Fetch data from database', 'd. Represent database record'],
+                        correct: 0,
+                        explanation: 'DriverManager loads drivers and manages database connections.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'How to establish database connection:',
+                        options: ['a. Create instance of Connection interface', 'b. Use DriverManager.getConnection() method', 'c. Implement Connection interface', 'd. Extend Connection class'],
+                        correct: 1,
+                        explanation: 'Standard way to get database connection in JDBC.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Method executing simple query returning ResultSet:',
+                        options: ['a. executeQuery()', 'b. executeUpdate()', 'c. execute()', 'd. run()'],
+                        correct: 0,
+                        explanation: 'executeQuery() executes SELECT queries and returns ResultSet.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Package containing JDBC classes:',
+                        options: ['a. java.sql', 'b. java.io', 'c. java.db', 'd. java.net'],
+                        correct: 0,
+                        explanation: 'JDBC classes are in java.sql package.',
+                        language: 'java'
+                    }
+                ]
+            },
+            {
+                id: 'week12',
+                name: 'Week 12: Assignment 12',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Correct way to create thread:',
+                        options: ['a. Implementing Runnable interface', 'b. Extending Thread class', 'c. Both A and B', 'd. None of the above'],
+                        correct: 2,
+                        explanation: 'Both approaches are valid for creating threads in Java.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Method starting thread:',
+                        options: ['a. start()', 'b. run()', 'c. execute()', 'd. init()'],
+                        correct: 0,
+                        explanation: 'start() method begins thread execution and calls run() method.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Layout arranging components in row:',
+                        options: ['a. GridLayout', 'b. FlowLayout', 'c. BorderLayout', 'd. CardLayout'],
+                        correct: 1,
+                        explanation: 'FlowLayout arranges components sequentially in a row.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'What setSize(400, 300) does:',
+                        options: ['a. Sets width to 300 and height to 400', 'b. Sets width to 400 and height to 300', 'c. Maximizes JFrame', 'd. Closes JFrame'],
+                        correct: 1,
+                        explanation: 'setSize(width, height) sets component dimensions.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'What ResultSet contains:',
+                        options: ['a. Only non-null records', 'b. All records including null values', 'c. Only null records', 'd. Single column from table'],
+                        correct: 1,
+                        explanation: 'ResultSet contains all rows returned by query, including null values.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Output of string length:',
+                        code: `System.out.println("hello".length());`,
+                        options: ['a. 3', 'b. 5', 'c. 6', 'd. 4'],
+                        correct: 1,
+                        explanation: '"hello" has 5 characters.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Correct way to declare array:',
+                        options: ['a. int arr = new int[5];', 'b. int[] arr = new int[5];', 'c. array arr = new int[5];', 'd. int arr[] = new int();'],
+                        correct: 1,
+                        explanation: 'int[] arr = new int[5]; is preferred syntax for array declaration.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Output of charAt:',
+                        code: `System.out.println("Java".charAt(1));`,
+                        options: ['a. J', 'b. a', 'c. v', 'd. A'],
+                        correct: 1,
+                        explanation: 'String indices start at 0: J=0, a=1, v=2, a=3.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Output of try-finally:',
+                        code: `try {
+    System.out.println("Try block");
+} finally {
+    System.out.println("Finally block");
+}`,
+                        options: ['a. Only "Try block"', 'b. Only "Finally block"', 'c. "Try block" followed by "Finally block"', 'd. Compilation error'],
+                        correct: 2,
+                        explanation: 'finally block always executes after try block.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Lightweight GUI framework:',
+                        options: ['a. AWT', 'b. Swing', 'c. Both A and B', 'd. None'],
+                        correct: 1,
+                        explanation: 'Swing is lightweight (pure Java), AWT is heavyweight (uses native components).',
+                        language: 'java'
+                    }
+                ]
+            }
+        ];
+
+        // Initialize the dashboard
+        function initializeDashboard() {
+            const dashboard = document.querySelector('.dashboard');
+            dashboard.innerHTML = '';
+            
+            weeksData.forEach(week => {
+                const javaQuestions = week.questions.filter(q => q.language === 'java').length;
+                const cQuestions = week.questions.filter(q => q.language === 'c').length;
+                
+                // Calculate progress from localStorage
+                const progress = getWeekProgress(week.id);
+                const progressPercent = week.questions.length > 0 ? (progress.completed / week.questions.length) * 100 : 0;
+                const accuracy = progress.completed > 0 ? (progress.correct / progress.completed) * 100 : 0;
+                
+                const weekCard = document.createElement('div');
+                weekCard.className = `week-card ${week.questions[0]?.language || 'java'}`;
+                weekCard.innerHTML = `
+                    <h3>${week.name}
+                        <span class="language-badge java-badge">Java: ${javaQuestions}</span>
+                        ${cQuestions > 0 ? `<span class="language-badge c-badge">C: ${cQuestions}</span>` : ''}
+                    </h3>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: ${progressPercent}%"></div>
+                    </div>
+                    <div class="stats">
+                        <span>${progress.completed}/${week.questions.length} completed</span>
+                        <span>${accuracy.toFixed(0)}% accuracy</span>
+                    </div>
+                `;
+                
+                weekCard.addEventListener('click', () => {
+                    showSection(week.id);
+                    renderWeekQuestions(week.id);
+                });
+                
+                dashboard.appendChild(weekCard);
+            });
+            
+            updateScoreBoard();
+        }
+
+    // Global variable to track current week
+    let currentWeekId = null;
+
+    // Initialize the dashboard
+    function initializeDashboard() {
+        const dashboard = document.querySelector('.dashboard');
+        dashboard.innerHTML = '';
+        
+        weeksData.forEach(week => {
+            const javaQuestions = week.questions.filter(q => q.language === 'java').length;
+            const cQuestions = week.questions.filter(q => q.language === 'c').length;
+            
+            // Calculate progress from localStorage
+            const progress = getWeekProgress(week.id);
+            const progressPercent = week.questions.length > 0 ? (progress.completed / week.questions.length) * 100 : 0;
+            const accuracy = progress.completed > 0 ? (progress.correct / progress.completed) * 100 : 0;
+            
+            const weekCard = document.createElement('div');
+            weekCard.className = `week-card ${week.questions[0]?.language || 'java'}`;
+            weekCard.innerHTML = `
+                <h3>${week.name}
+                    <span class="language-badge java-badge">Java: ${javaQuestions}</span>
+                    ${cQuestions > 0 ? `<span class="language-badge c-badge">C: ${cQuestions}</span>` : ''}
+                </h3>
+                <div class="progress">
+                    <div class="progress-bar" style="width: ${progressPercent}%"></div>
+                </div>
+                <div class="stats">
+                    <span>${progress.completed}/${week.questions.length} completed</span>
+                    <span>${accuracy.toFixed(0)}% accuracy</span>
+                </div>
+            `;
+            
+            weekCard.addEventListener('click', () => {
+                showSection(week.id);
+                renderWeekQuestions(week.id);
+            });
+            
+            dashboard.appendChild(weekCard);
+        });
+        
+        updateScoreBoard();
+    }
+
+    // Render questions for a specific week - COMPLETELY FIXED VERSION
+    function renderWeekQuestions(weekId) {
+        // Clear any existing content and reset
+        const section = document.getElementById(weekId);
+        section.innerHTML = '';
+        
+        const week = weeksData.find(w => w.id === weekId);
+        if (!week) return;
+        
+        // Set current week
+        currentWeekId = weekId;
+
+        const practiceArea = document.createElement('div');
+        practiceArea.className = 'practice-area';
+        practiceArea.innerHTML = `
+            <div class="question-header">
+                <h2>${week.name}</h2>
+                <div class="question-navigation">
+                    <button class="btn-secondary" id="prev-week" disabled>Previous Week</button>
+                    <button class="btn-secondary" id="next-week" disabled>Next Week</button>
+                </div>
+            </div>
+            <div class="question-counter" id="question-counter-${weekId}">Question 1 of ${week.questions.length}</div>
+            <div class="attempt-counter" id="attempt-counter-${weekId}">Attempts remaining: 3</div>
+            <div class="quick-nav" id="quick-nav-${weekId}">
+                ${week.questions.map((_, index) => `<button class="nav-btn" data-index="${index}">${index + 1}</button>`).join('')}
+            </div>
+            <div id="questions-container-${weekId}">
+                ${week.questions.map((question, index) => `
+                    <div class="question-container" id="question-${weekId}-${index}" style="${index > 0 ? 'display: none;' : ''}">
+                        <div class="question-text">${question.id}. ${question.text}</div>
+                        ${question.code ? `<div class="code-snippet">${question.code}</div>` : ''}
+                        <div class="options">
+                            ${question.options.map((option, optIndex) => `
+                                <div class="option" data-index="${optIndex}">${option}</div>
+                            `).join('')}
+                        </div>
+                        <div class="explanation">
+                            <h4>Explanation</h4>
+                            <p>${question.explanation}</p>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="controls">
+                <button class="btn-secondary" id="prev-question-${weekId}">Previous Question</button>
+                <button class="btn-reset" id="reset-question-${weekId}">Reset Question</button>
+                <button class="btn-primary" id="check-answer-${weekId}">Check Answer</button>
+                <button class="btn-primary" id="next-question-${weekId}">Next Question</button>
+            </div>
+        `;
+        
+        section.appendChild(practiceArea);
+        
+        // Add event listeners for the newly created elements
+        setupQuestionNavigation(weekId);
+    }
+
+    // Set up question navigation for a week - COMPLETELY FIXED VERSION
+    function setupQuestionNavigation(weekId) {
+        const week = weeksData.find(w => w.id === weekId);
+        if (!week) return;
+        
+        let currentQuestion = 0;
+        let attempts = 3;
+        
+        // Update question counter
+        function updateCounter() {
+            const counter = document.getElementById(`question-counter-${weekId}`);
+            const attemptCounter = document.getElementById(`attempt-counter-${weekId}`);
+            if (counter && attemptCounter) {
+                counter.textContent = `Question ${currentQuestion + 1} of ${week.questions.length}`;
+                attemptCounter.textContent = `Attempts remaining: ${attempts}`;
+            }
+        }
+        
+        // Update quick nav buttons
+        function updateQuickNav() {
+            const progress = getWeekProgress(weekId);
+            const quickNav = document.getElementById(`quick-nav-${weekId}`);
+            if (quickNav) {
+                const navBtns = quickNav.querySelectorAll('.nav-btn');
+                navBtns.forEach((btn, index) => {
+                    btn.classList.remove('correct', 'incorrect', 'current');
+                    if (index === currentQuestion) {
+                        btn.classList.add('current');
+                    }
+                    if (progress.answers[index] !== undefined) {
+                        if (progress.correctAnswers && progress.correctAnswers[index]) {
+                            btn.classList.add('correct');
+                        } else {
+                            btn.classList.add('incorrect');
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Show specific question
+        function showQuestion(index) {
+            const questionsContainer = document.getElementById(`questions-container-${weekId}`);
+            if (!questionsContainer) return;
+            
+            const containers = questionsContainer.querySelectorAll('.question-container');
+            containers.forEach((container, i) => {
+                container.style.display = i === index ? 'block' : 'none';
+            });
+            currentQuestion = index;
+            updateCounter();
+            updateQuickNav();
+            
+            // Load persistent selection
+            loadSelection(index);
+            
+            // Clear any previous explanations
+            containers.forEach(container => {
+                const explanation = container.querySelector('.explanation');
+                if (explanation) {
+                    explanation.style.display = 'none';
+                }
+            });
+        }
+        
+        // Load saved selection
+        function loadSelection(index) {
+            const saved = localStorage.getItem(`selection-${weekId}-${index}`);
+            if (saved) {
+                const selectedIndex = parseInt(saved);
+                const container = document.getElementById(`question-${weekId}-${index}`);
+                if (container) {
+                    const options = container.querySelectorAll('.option');
+                    options.forEach((opt, i) => {
+                        opt.classList.remove('selected');
+                        if (i === selectedIndex) {
+                            opt.classList.add('selected');
+                        }
+                    });
+                }
+            }
+        }
+        
+        // Save selection
+        function saveSelection(index, selectedIndex) {
+            localStorage.setItem(`selection-${weekId}-${index}`, selectedIndex);
+        }
+        
+        // Previous question button
+        const prevBtn = document.getElementById(`prev-question-${weekId}`);
+        if (prevBtn) {
+            // Remove any existing event listeners
+            const newPrevBtn = prevBtn.cloneNode(true);
+            prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+            
+            newPrevBtn.addEventListener('click', () => {
+                if (currentQuestion > 0) {
+                    showQuestion(currentQuestion - 1);
+                }
+            });
+        }
+        
+        // Next question button
+        const nextBtn = document.getElementById(`next-question-${weekId}`);
+        if (nextBtn) {
+            // Remove any existing event listeners
+            const newNextBtn = nextBtn.cloneNode(true);
+            nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+            
+            newNextBtn.addEventListener('click', () => {
+                if (currentQuestion < week.questions.length - 1) {
+                    showQuestion(currentQuestion + 1);
+                }
+            });
+        }
+        
+        // Reset question button
+        const resetBtn = document.getElementById(`reset-question-${weekId}`);
+        if (resetBtn) {
+            // Remove any existing event listeners
+            const newResetBtn = resetBtn.cloneNode(true);
+            resetBtn.parentNode.replaceChild(newResetBtn, resetBtn);
+            
+            newResetBtn.addEventListener('click', () => {
+                const container = document.getElementById(`question-${weekId}-${currentQuestion}`);
+                if (container) {
+                    container.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected', 'correct', 'incorrect');
+                    });
+                    const explanation = container.querySelector('.explanation');
+                    if (explanation) {
+                        explanation.style.display = 'none';
+                    }
+                    localStorage.removeItem(`selection-${weekId}-${currentQuestion}`);
+                    attempts = 3;
+                    updateCounter();
+                }
+            });
+        }
+        
+        // Check answer button
+        const checkBtn = document.getElementById(`check-answer-${weekId}`);
+        if (checkBtn) {
+            // Remove any existing event listeners
+            const newCheckBtn = checkBtn.cloneNode(true);
+            checkBtn.parentNode.replaceChild(newCheckBtn, checkBtn);
+            
+            newCheckBtn.addEventListener('click', () => {
+                // Check if we're still on the correct week
+                if (currentWeekId !== weekId) return;
+                
+                const currentContainer = document.getElementById(`question-${weekId}-${currentQuestion}`);
+                if (!currentContainer) return;
+                
+                const selectedOption = currentContainer.querySelector('.option.selected');
+                
+                if (!selectedOption) {
+                    alert('Please select an answer first!');
+                    return;
+                }
+                
+                if (attempts <= 0) {
+                    alert('No attempts remaining for this question!');
+                    return;
+                }
+                
+                attempts--;
+                updateCounter();
+                
+                const selectedIndex = parseInt(selectedOption.getAttribute('data-index'));
+                const isCorrect = selectedIndex === week.questions[currentQuestion].correct;
+                const explanation = currentContainer.querySelector('.explanation');
+                
+                // Show correct/incorrect styling
+                const options = currentContainer.querySelectorAll('.option');
+                options.forEach((option, index) => {
+                    if (index === week.questions[currentQuestion].correct) {
+                        option.classList.add('correct');
+                    } else if (option === selectedOption && !isCorrect) {
+                        option.classList.add('incorrect');
+                    }
+                });
+                
+                // Show explanation
+                if (explanation) {
+                    explanation.style.display = 'block';
+                }
+                
+                // Update progress in localStorage
+                updateProgress(weekId, currentQuestion, isCorrect);
+                
+                // Update dashboard
+                initializeDashboard();
+                updateQuickNav();
+            });
+        }
+        
+        // OPTION SELECTION - FIXED VERSION
+        const questionsContainer = document.getElementById(`questions-container-${weekId}`);
+        if (questionsContainer) {
+            // Remove any existing event listeners by cloning
+            const newQuestionsContainer = questionsContainer.cloneNode(true);
+            questionsContainer.parentNode.replaceChild(newQuestionsContainer, questionsContainer);
+            
+            newQuestionsContainer.addEventListener('click', function(e) {
+                // Check if we're still on the correct week
+                if (currentWeekId !== weekId) return;
+                
+                if (e.target.classList.contains('option')) {
+                    const option = e.target;
+                    const container = option.closest('.question-container');
+                    if (!container) return;
+                    
+                    const questionIndex = parseInt(container.id.split('-')[2]); // Get index from question-weekId-index
+                    
+                    // Remove selected class from all options in this question
+                    container.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    option.classList.add('selected');
+                    
+                    // Save selection
+                    const selectedIndex = parseInt(option.getAttribute('data-index'));
+                    saveSelection(questionIndex, selectedIndex);
+                }
+            });
+        }
+        
+        // Quick nav buttons
+        const quickNav = document.getElementById(`quick-nav-${weekId}`);
+        if (quickNav) {
+            // Remove any existing event listeners by cloning
+            const newQuickNav = quickNav.cloneNode(true);
+            quickNav.parentNode.replaceChild(newQuickNav, quickNav);
+            
+            newQuickNav.addEventListener('click', function(e) {
+                // Check if we're still on the correct week
+                if (currentWeekId !== weekId) return;
+                
+                if (e.target.classList.contains('nav-btn')) {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    showQuestion(index);
+                }
+            });
+        }
+        
+        // Initialize first question
+        showQuestion(0);
+    }
+
+    // Progress tracking functions
+    function getWeekProgress(weekId) {
+        const progress = JSON.parse(localStorage.getItem(`progress-${weekId}`)) || {
+            completed: 0,
+            correct: 0,
+            answers: {},
+            correctAnswers: {}
+        };
+        return progress;
+    }
+
+    function updateProgress(weekId, questionIndex, isCorrect) {
+        const progress = getWeekProgress(weekId);
+        
+        // Only update if this question wasn't answered before
+        if (progress.answers[questionIndex] === undefined) {
+            progress.answers[questionIndex] = true;
+            progress.correctAnswers[questionIndex] = isCorrect;
+            progress.completed++;
+            if (isCorrect) {
+                progress.correct++;
+            }
+            localStorage.setItem(`progress-${weekId}`, JSON.stringify(progress));
+        }
+    }
+
+    // Update the score board with totals
+    function updateScoreBoard() {
+        let totalQuestions = 0;
+        let totalCompleted = 0;
+        let totalCorrect = 0;
+        
+        weeksData.forEach(week => {
+            totalQuestions += week.questions.length;
+            const progress = getWeekProgress(week.id);
+            totalCompleted += progress.completed;
+            totalCorrect += progress.correct;
+        });
+        
+        const accuracy = totalCompleted > 0 ? (totalCorrect / totalCompleted) * 100 : 0;
+        
+        document.getElementById('total-questions').textContent = totalQuestions;
+        document.getElementById('completed').textContent = totalCompleted;
+        document.getElementById('correct').textContent = totalCorrect;
+        document.getElementById('accuracy').textContent = `${accuracy.toFixed(1)}%`;
+    }
+
+    // Show a specific section
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        
+        // Show the selected section
+        document.getElementById(sectionId).classList.add('active');
+        
+        // Update navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        document.querySelector(`.nav-link[data-target="${sectionId}"]`).classList.add('active');
+    }
+
+    // Language filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            filterDashboard(filter);
+        });
+    });
+
+    function filterDashboard(filter) {
+        const cards = document.querySelectorAll('.week-card');
+        cards.forEach(card => {
+            if (filter === 'all') {
+                card.style.display = 'block';
+            } else if (filter === 'java') {
+                card.style.display = card.classList.contains('java') ? 'block' : 'none';
+            } else if (filter === 'c') {
+                card.style.display = card.classList.contains('c-programming') ? 'block' : 'none';
+            }
+        });
+    }
+
+    // Navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
+            showSection(target);
+            
+            if (target !== 'dashboard') {
+                const weekId = target;
+                renderWeekQuestions(weekId);
+            }
+        });
+    });
+
+    // Navbar toggle
+    document.getElementById('nav-toggle').addEventListener('click', function() {
+        const navMenu = document.getElementById('nav-menu');
+        navMenu.classList.toggle('active');
+    });
+
+    // Initialize the application
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeDashboard();
+    });
+    </script>
+</body>
+</html>
