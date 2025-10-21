@@ -2285,7 +2285,7 @@ public class DisplayProducts {
         updateScoreBoard();
     }
 
-    // Render questions for a specific week - COMPLETELY FIXED VERSION
+    // Render questions for a specific week - FIXED VERSION
     function renderWeekQuestions(weekId) {
         // Clear any existing content and reset
         const section = document.getElementById(weekId);
@@ -2297,14 +2297,19 @@ public class DisplayProducts {
         // Set current week
         currentWeekId = weekId;
 
+        // Find current week index
+        const currentWeekIndex = weeksData.findIndex(w => w.id === weekId);
+        const hasPreviousWeek = currentWeekIndex > 0;
+        const hasNextWeek = currentWeekIndex < weeksData.length - 1;
+
         const practiceArea = document.createElement('div');
         practiceArea.className = 'practice-area';
         practiceArea.innerHTML = `
             <div class="question-header">
                 <h2>${week.name}</h2>
                 <div class="question-navigation">
-                    <button class="btn-secondary" id="prev-week" disabled>Previous Week</button>
-                    <button class="btn-secondary" id="next-week" disabled>Next Week</button>
+                    <button class="btn-secondary" id="prev-week-${weekId}" ${!hasPreviousWeek ? 'disabled' : ''}>Previous Week</button>
+                    <button class="btn-secondary" id="next-week-${weekId}" ${!hasNextWeek ? 'disabled' : ''}>Next Week</button>
                 </div>
             </div>
             <div class="question-counter" id="question-counter-${weekId}">Question 1 of ${week.questions.length}</div>
@@ -2343,7 +2348,7 @@ public class DisplayProducts {
         setupQuestionNavigation(weekId);
     }
 
-    // Set up question navigation for a week - COMPLETELY FIXED VERSION
+    // Set up question navigation for a week - FIXED VERSION
     function setupQuestionNavigation(weekId) {
         const week = weeksData.find(w => w.id === weekId);
         if (!week) return;
@@ -2430,15 +2435,37 @@ public class DisplayProducts {
         function saveSelection(index, selectedIndex) {
             localStorage.setItem(`selection-${weekId}-${index}`, selectedIndex);
         }
+
+        // PREVIOUS WEEK BUTTON - FIXED
+        const prevWeekBtn = document.getElementById(`prev-week-${weekId}`);
+        if (prevWeekBtn) {
+            prevWeekBtn.addEventListener('click', () => {
+                const currentWeekIndex = weeksData.findIndex(w => w.id === weekId);
+                if (currentWeekIndex > 0) {
+                    const prevWeekId = weeksData[currentWeekIndex - 1].id;
+                    showSection(prevWeekId);
+                    renderWeekQuestions(prevWeekId);
+                }
+            });
+        }
+
+        // NEXT WEEK BUTTON - FIXED
+        const nextWeekBtn = document.getElementById(`next-week-${weekId}`);
+        if (nextWeekBtn) {
+            nextWeekBtn.addEventListener('click', () => {
+                const currentWeekIndex = weeksData.findIndex(w => w.id === weekId);
+                if (currentWeekIndex < weeksData.length - 1) {
+                    const nextWeekId = weeksData[currentWeekIndex + 1].id;
+                    showSection(nextWeekId);
+                    renderWeekQuestions(nextWeekId);
+                }
+            });
+        }
         
         // Previous question button
         const prevBtn = document.getElementById(`prev-question-${weekId}`);
         if (prevBtn) {
-            // Remove any existing event listeners
-            const newPrevBtn = prevBtn.cloneNode(true);
-            prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
-            
-            newPrevBtn.addEventListener('click', () => {
+            prevBtn.addEventListener('click', () => {
                 if (currentQuestion > 0) {
                     showQuestion(currentQuestion - 1);
                 }
@@ -2448,11 +2475,7 @@ public class DisplayProducts {
         // Next question button
         const nextBtn = document.getElementById(`next-question-${weekId}`);
         if (nextBtn) {
-            // Remove any existing event listeners
-            const newNextBtn = nextBtn.cloneNode(true);
-            nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
-            
-            newNextBtn.addEventListener('click', () => {
+            nextBtn.addEventListener('click', () => {
                 if (currentQuestion < week.questions.length - 1) {
                     showQuestion(currentQuestion + 1);
                 }
@@ -2462,11 +2485,7 @@ public class DisplayProducts {
         // Reset question button
         const resetBtn = document.getElementById(`reset-question-${weekId}`);
         if (resetBtn) {
-            // Remove any existing event listeners
-            const newResetBtn = resetBtn.cloneNode(true);
-            resetBtn.parentNode.replaceChild(newResetBtn, resetBtn);
-            
-            newResetBtn.addEventListener('click', () => {
+            resetBtn.addEventListener('click', () => {
                 const container = document.getElementById(`question-${weekId}-${currentQuestion}`);
                 if (container) {
                     container.querySelectorAll('.option').forEach(opt => {
@@ -2486,11 +2505,7 @@ public class DisplayProducts {
         // Check answer button
         const checkBtn = document.getElementById(`check-answer-${weekId}`);
         if (checkBtn) {
-            // Remove any existing event listeners
-            const newCheckBtn = checkBtn.cloneNode(true);
-            checkBtn.parentNode.replaceChild(newCheckBtn, checkBtn);
-            
-            newCheckBtn.addEventListener('click', () => {
+            checkBtn.addEventListener('click', () => {
                 // Check if we're still on the correct week
                 if (currentWeekId !== weekId) return;
                 
@@ -2540,14 +2555,10 @@ public class DisplayProducts {
             });
         }
         
-        // OPTION SELECTION - FIXED VERSION
+        // OPTION SELECTION
         const questionsContainer = document.getElementById(`questions-container-${weekId}`);
         if (questionsContainer) {
-            // Remove any existing event listeners by cloning
-            const newQuestionsContainer = questionsContainer.cloneNode(true);
-            questionsContainer.parentNode.replaceChild(newQuestionsContainer, questionsContainer);
-            
-            newQuestionsContainer.addEventListener('click', function(e) {
+            questionsContainer.addEventListener('click', function(e) {
                 // Check if we're still on the correct week
                 if (currentWeekId !== weekId) return;
                 
@@ -2576,11 +2587,7 @@ public class DisplayProducts {
         // Quick nav buttons
         const quickNav = document.getElementById(`quick-nav-${weekId}`);
         if (quickNav) {
-            // Remove any existing event listeners by cloning
-            const newQuickNav = quickNav.cloneNode(true);
-            quickNav.parentNode.replaceChild(newQuickNav, quickNav);
-            
-            newQuickNav.addEventListener('click', function(e) {
+            quickNav.addEventListener('click', function(e) {
                 // Check if we're still on the correct week
                 if (currentWeekId !== weekId) return;
                 
