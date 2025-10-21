@@ -2308,8 +2308,8 @@ public class DisplayProducts {
             <div class="question-header">
                 <h2>${week.name}</h2>
                 <div class="question-navigation">
-                    <button class="btn-secondary" id="prev-week-${weekId}" ${!hasPreviousWeek ? 'disabled' : ''}>Previous Week</button>
-                    <button class="btn-secondary" id="next-week-${weekId}" ${!hasNextWeek ? 'disabled' : ''}>Next Week</button>
+                    <button class="btn-secondary" id="prev-week-${weekId}">Previous Week</button>
+                    <button class="btn-secondary" id="next-week-${weekId}">Next Week</button>    
                 </div>
             </div>
             <div class="question-counter" id="question-counter-${weekId}">Question 1 of ${week.questions.length}</div>
