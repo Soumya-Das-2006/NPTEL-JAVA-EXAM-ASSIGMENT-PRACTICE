@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NPTEL Java Practice Platform</title>
     <style>
+        /* All your existing CSS styles remain the same */
         :root {
             --primary: #2c3e50;
             --secondary: #3498db;
@@ -435,6 +436,26 @@
             background-color: var(--secondary);
         }
         
+        /* Extra Questions Section Styles */
+        .topic-section {
+            margin-bottom: 30px;
+        }
+        
+        .topic-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+        
+        .topic-content {
+            background: white;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
         @media (max-width: 768px) {
             .nav-toggle {
                 display: block;
@@ -493,7 +514,7 @@
             <span class="logo-icon">☕</span>
             <h1>NPTEL Java Practice Platform</h1>
         </div>
-        <p>Master Programming in Java with interactive exercises from all 12 weeks (120 Questions)</p>
+        <p>Master Programming in Java with interactive exercises from all 12 weeks (120 Questions) + Extra Topic Questions</p>
     </header>
     
     <nav>
@@ -513,13 +534,14 @@
             <li><a href="#" class="nav-link" data-target="week10">Week 10</a></li>
             <li><a href="#" class="nav-link" data-target="week11">Week 11</a></li>
             <li><a href="#" class="nav-link" data-target="week12">Week 12</a></li>
+            <li><a href="#" class="nav-link" data-target="extra-questions">Extra Questions</a></li>
         </ul>
     </nav>
     
     <div class="container">
         <section id="dashboard" class="content-section active">
             <h2>Course Progress Dashboard</h2>
-            <p>Track your progress through all 12 weeks of NPTEL Programming in Java assignments.</p>
+            <p>Track your progress through all 12 weeks of NPTEL Programming in Java assignments + Extra Topic Questions.</p>
             
             <div class="score-board">
                 <div class="score-item">
@@ -565,6 +587,132 @@
         <section id="week10" class="content-section"></section>
         <section id="week11" class="content-section"></section>
         <section id="week12" class="content-section"></section>
+        
+        <!-- Extra Questions Section -->
+        <section id="extra-questions" class="content-section">
+            <h2>🧩 Extra Topic Questions</h2>
+            <p>Additional practice questions organized by topic to strengthen your Java fundamentals.</p>
+            
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 1 – Java Basics</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>Java Basics - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic1-container"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 2 – Classes & Objects (OOP Concepts)</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>Classes & Objects - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic2-container"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 3 – Inheritance and Polymorphism</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>Inheritance & Polymorphism - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic3-container"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 4 – Packages and Interfaces</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>Packages & Interfaces - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic4-container"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 5 – Exception Handling (Advanced)</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>Exception Handling - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic5-container"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 6 – Multithreading (Advanced)</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>Multithreading - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic6-container"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 7 – File Handling and I/O Streams</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>File Handling & I/O - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic7-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 8 – GUI Programming (AWT & Swing)</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>GUI Programming - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic8-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 9 – JDBC (Database Connectivity)</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>JDBC - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic9-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h3 class="topic-header">Topic 10 – Integrated Java Applications</h3>
+                <div class="topic-content">
+                    <div class="practice-area">
+                        <div class="question-header">
+                            <h3>Integrated Applications - 20 Questions</h3>
+                        </div>
+                        <div id="extra-topic10-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     
     <footer>
@@ -816,7 +964,7 @@ print(result)`,
             System.out.print(a + b);
             System.out.print(" " + a + b + "");
             System.out.print(foo() + a + b + "");
-            System.out.println(a + b + foo());
+            System.out.print(a + b + foo());
         }
         
         String foo() {
@@ -2200,16 +2348,1761 @@ public class DisplayProducts {
             }
         ];
 
-        // Initialize the dashboard
+        // Extra Questions Data - All 7 topics with complete questions
+        const extraQuestionsData = {
+            'topic1': {
+                name: 'Java Basics',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which of the following is the correct sequence of Java program execution?',
+                        options: ['A) Edit → Compile → Execute', 'B) Compile → Edit → Execute', 'C) Edit → Execute → Compile', 'D) Execute → Edit → Compile'],
+                        correct: 0,
+                        explanation: 'You write (edit) the code, compile it into bytecode, then execute via JVM.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Which component of Java is responsible for bytecode execution?',
+                        options: ['A) JDK', 'B) JRE', 'C) JVM', 'D) Compiler'],
+                        correct: 2,
+                        explanation: 'JVM (Java Virtual Machine) loads and executes bytecode line by line.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Which of the following is not a Java primitive data type?',
+                        options: ['A) int', 'B) float', 'C) boolean', 'D) string'],
+                        correct: 3,
+                        explanation: 'String is a class in java.lang, not a primitive type.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'What is the default value of an instance variable of type boolean?',
+                        options: ['A) true', 'B) false', 'C) 0', 'D) null'],
+                        correct: 1,
+                        explanation: 'All boolean instance variables are initialized to false by default.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which of the following operators has the highest precedence?',
+                        options: ['A) ++', 'B) *', 'C) &&', 'D) ='],
+                        correct: 0,
+                        explanation: 'Unary increment/decrement have higher precedence than arithmetic or logical operators.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Which of the following control statements is used to terminate the loop immediately?',
+                        options: ['A) continue', 'B) break', 'C) exit', 'D) stop'],
+                        correct: 1,
+                        explanation: 'break exits the loop instantly, while continue skips one iteration.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Which of these is not a valid keyword in Java?',
+                        options: ['A) static', 'B) Boolean', 'C) final', 'D) default'],
+                        correct: 1,
+                        explanation: 'Java keywords are lowercase; Boolean is a wrapper class, not a keyword.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'What will be the output of the following code?\n\nint a = 5;\nSystem.out.println(a++ + ++a);',
+                        options: ['A) 10', 'B) 11', 'C) 12', 'D) 13'],
+                        correct: 2,
+                        explanation: 'a++ uses 5, then increments to 6; ++a makes 7. So 5 + 7 = 12.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'What is the size of the double data type in Java?',
+                        options: ['A) 4 bytes', 'B) 8 bytes', 'C) 2 bytes', 'D) 16 bytes'],
+                        correct: 1,
+                        explanation: 'double is a 64-bit (8-byte) floating-point type.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Which of these is true about Java?',
+                        options: ['A) It is platform-dependent', 'B) It uses pointers explicitly', 'C) It supports automatic memory management', 'D) It compiles into native code'],
+                        correct: 2,
+                        explanation: 'Java manages memory via Garbage Collector automatically.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'What is the extension of compiled Java bytecode files?',
+                        options: ['A) .java', 'B) .exe', 'C) .class', 'D) .jar'],
+                        correct: 2,
+                        explanation: '.class files contain bytecode - intermediate code that JVM can execute.',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'Which of the following loops is guaranteed to execute at least once?',
+                        options: ['A) for loop', 'B) while loop', 'C) do-while loop', 'D) enhanced for loop'],
+                        correct: 2,
+                        explanation: 'do-while executes once before condition checking.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'What is printed by the following code?\n\nSystem.out.println(10 + 20 + "Java" + 10 + 20);',
+                        options: ['A) 60Java30', 'B) 30Java1020', 'C) 1020Java1020', 'D) 30Java30'],
+                        correct: 1,
+                        explanation: 'Left-to-right evaluation: (10+20)=30 → then string concatenation continues.',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'Which class is the parent of all Java classes?',
+                        options: ['A) Object', 'B) Class', 'C) Runtime', 'D) System'],
+                        correct: 0,
+                        explanation: 'Every class in Java implicitly extends java.lang.Object.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'What is the output of:\n\nSystem.out.println(\'A\' + 1);',
+                        options: ['A) A1', 'B) B', 'C) 66', 'D) Compilation Error'],
+                        correct: 2,
+                        explanation: "'A' is 65 in ASCII → 65+1 = 66.",
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'Java source code is compiled into ________.',
+                        options: ['A) Machine code', 'B) Assembly code', 'C) Bytecode', 'D) Intermediate binary'],
+                        correct: 2,
+                        explanation: 'Java compiler converts .java → .class (bytecode), executed by JVM.',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'Which statement is used to exit from a method and return control to the caller?',
+                        options: ['A) end', 'B) break', 'C) continue', 'D) return'],
+                        correct: 3,
+                        explanation: 'return ends method execution and returns control.',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'Which of these statements about Java is false?',
+                        options: ['A) Java is case-sensitive', 'B) Java supports multiple inheritance via classes', 'C) Java supports platform independence', 'D) Java supports exception handling'],
+                        correct: 1,
+                        explanation: "Java doesn't support multiple inheritance via classes — only via interfaces.",
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'Which memory area stores local variables?',
+                        options: ['A) Stack', 'B) Heap', 'C) Static memory', 'D) Registers'],
+                        correct: 0,
+                        explanation: 'Local variables and function call info are stored on the stack.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'Which of these is true about constructors?',
+                        options: ['A) Constructors have a return type', 'B) Constructors cannot be overloaded', 'C) Constructors are called automatically when object is created', 'D) Constructors must be static'],
+                        correct: 2,
+                        explanation: 'Constructors initialize objects and are invoked during creation using new.',
+                        language: 'java'
+                    }
+                ]
+            },
+            'topic2': {
+                name: 'Classes & Objects',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which keyword is used to create an object in Java?',
+                        options: ['A) class', 'B) object', 'C) new', 'D) malloc'],
+                        correct: 2,
+                        explanation: 'new allocates memory and calls the class constructor.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Which of the following is true about constructors?',
+                        options: ['A) Must have a return type', 'B) Can be overloaded', 'C) Can be static', 'D) Called manually'],
+                        correct: 1,
+                        explanation: 'Constructors have no return type and can be overloaded with different parameter lists.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'What will be printed?\n\nclass Test {\n  int x;\n  Test(int x) { this.x = x; }\n  void show() { System.out.println(x); }\n  public static void main(String[] a){ new Test(10).show(); }\n}',
+                        options: ['A) 0', 'B) 10', 'C) Error', 'D) null'],
+                        correct: 1,
+                        explanation: 'this.x = x; assigns 10 to instance variable.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Which of the following variables is shared among all instances of a class?',
+                        options: ['A) local variable', 'B) instance variable', 'C) static variable', 'D) final variable'],
+                        correct: 2,
+                        explanation: 'static variables belong to the class, not to individual objects.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which keyword refers to the current object inside a method or constructor?',
+                        options: ['A) super', 'B) this', 'C) self', 'D) own'],
+                        correct: 1,
+                        explanation: 'this refers to the current instance invoking the method.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'What happens if a constructor is not defined in a class?',
+                        options: ['A) Compilation error', 'B) JVM automatically defines a default constructor', 'C) Object cannot be created', 'D) Constructor must always be defined'],
+                        correct: 1,
+                        explanation: 'The compiler supplies a default no-argument constructor.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Which statement correctly defines data encapsulation?',
+                        options: ['A) Binding data and methods together', 'B) Hiding data from outside access', 'C) Both A and B', 'D) Only public access'],
+                        correct: 2,
+                        explanation: 'Encapsulation combines data with code and hides implementation details.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Which of the following cannot be declared as static?',
+                        options: ['A) method', 'B) variable', 'C) class (nested)', 'D) constructor'],
+                        correct: 3,
+                        explanation: 'Constructors are always invoked for specific objects; they cannot be static.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'What is the output?\n\nclass Demo {\n  static int count=0;\n  Demo(){ count++; }\n  public static void main(String[] a){\n    new Demo(); new Demo(); new Demo();\n    System.out.println(count);\n  }\n}',
+                        options: ['A) 0', 'B) 1', 'C) 2', 'D) 3'],
+                        correct: 3,
+                        explanation: 'count is static and increments with each object creation.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Which access modifier makes a member visible only within its own class?',
+                        options: ['A) public', 'B) private', 'C) protected', 'D) default'],
+                        correct: 1,
+                        explanation: 'private restricts access to within the same class only.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'Which method is automatically called when an object is garbage-collected?',
+                        options: ['A) finalize()', 'B) delete()', 'C) destroy()', 'D) dispose()'],
+                        correct: 0,
+                        explanation: 'finalize() is invoked by GC before reclaiming memory.',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'Which of the following is correct about method overloading?',
+                        options: ['A) Same name, different parameters', 'B) Same name, same parameters', 'C) Different name, same parameters', 'D) Cannot occur in Java'],
+                        correct: 0,
+                        explanation: 'Overloading allows same method name but different parameter lists.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'What is the output?\n\nclass A {\n  int x = 10;\n  void print() { int x = 20; System.out.println(this.x); }\n  public static void main(String[] a){ new A().print(); }\n}',
+                        options: ['A) 10', 'B) 20', 'C) Compilation error', 'D) 0'],
+                        correct: 0,
+                        explanation: 'this.x accesses the instance variable (10), not local (20).',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'Which of these can access private members of a class?',
+                        options: ['A) Subclass', 'B) Package class', 'C) Only the same class', 'D) None'],
+                        correct: 2,
+                        explanation: 'Private members are visible only inside their defining class.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'Which statement is true for final variables?',
+                        options: ['A) Their values can be changed', 'B) Must be initialized once', 'C) Cannot be declared static', 'D) Automatically initialized to 0'],
+                        correct: 1,
+                        explanation: 'final variables must be assigned exactly once.',
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'Which modifier prevents a class from being subclassed?',
+                        options: ['A) abstract', 'B) final', 'C) static', 'D) private'],
+                        correct: 1,
+                        explanation: 'Declaring a class final stops inheritance.',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'Which of these best describes runtime polymorphism?',
+                        options: ['A) Method overloading', 'B) Method overriding', 'C) Operator overloading', 'D) Constructor overloading'],
+                        correct: 1,
+                        explanation: 'Overriding decisions are made at runtime.',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'What will be the output?\n\nclass A{ A(){ System.out.print("A"); } }\nclass B extends A{ B(){ System.out.print("B"); } }\nclass C extends B{ C(){ System.out.print("C"); } }\nclass Main{ public static void main(String[] a){ new C(); } }',
+                        options: ['A) ABC', 'B) CBA', 'C) A', 'D) Compilation error'],
+                        correct: 0,
+                        explanation: 'Constructors execute from base to derived.',
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'Which keyword is used to refer to the immediate parent class object?',
+                        options: ['A) super', 'B) this', 'C) extends', 'D) base'],
+                        correct: 0,
+                        explanation: 'super refers to the immediate parent class.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'What is output?\n\nclass Parent{ void show(){ System.out.println("Parent"); } }\nclass Child extends Parent{ void show(){ System.out.println("Child"); } }\nclass Main{ public static void main(String[] a){ Parent p = new Child(); p.show(); } }',
+                        options: ['A) Parent', 'B) Child', 'C) Error', 'D) None'],
+                        correct: 1,
+                        explanation: 'Runtime binding calls the child\'s method through parent reference.',
+                        language: 'java'
+                    }
+                ]
+            },
+            'topic3': {
+                name: 'Inheritance and Polymorphism',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which keyword is used to inherit a class in Java?',
+                        options: ['A) implement', 'B) inherits', 'C) extends', 'D) super'],
+                        correct: 2,
+                        explanation: 'extends creates a subclass that inherits fields and methods from a superclass.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Which statement is true about method overriding?',
+                        options: ['A) Static methods can be overridden', 'B) Return type must be identical or covariant', 'C) Access modifier must be stricter', 'D) Final methods can be overridden'],
+                        correct: 1,
+                        explanation: 'Overridden methods must keep the same signature and compatible return type.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Which keyword calls the parent class constructor?',
+                        options: ['A) super', 'B) this', 'C) parent', 'D) base'],
+                        correct: 0,
+                        explanation: 'super() must be the first statement in a constructor to invoke the superclass constructor.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'What is the output?\n\nclass A { int x = 10; }\nclass B extends A { int x = 20; void show(){ System.out.println(super.x); } }\nclass Main { public static void main(String[] a){ new B().show(); } }',
+                        options: ['A) 10', 'B) 20', 'C) Compilation error', 'D) Runtime error'],
+                        correct: 0,
+                        explanation: 'super.x refers to the parent variable.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which class cannot be instantiated directly?',
+                        options: ['A) Normal class', 'B) Abstract class', 'C) Final class', 'D) Inner class'],
+                        correct: 1,
+                        explanation: 'Abstract classes may contain abstract methods and cannot be instantiated.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Which modifier prevents a method from being overridden?',
+                        options: ['A) static', 'B) final', 'C) private', 'D) abstract'],
+                        correct: 1,
+                        explanation: 'final methods cannot be redefined in a subclass.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Which concept allows a reference variable to point to objects of different types at runtime?',
+                        options: ['A) Encapsulation', 'B) Polymorphism', 'C) Inheritance', 'D) Abstraction'],
+                        correct: 1,
+                        explanation: 'Polymorphism enables a single reference to call methods on different objects.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'What is the output?\n\nclass A { void show(){ System.out.println("A"); } }\nclass B extends A { void show(){ System.out.println("B"); } }\nclass Main { public static void main(String[] a){ A obj = new B(); obj.show(); } }',
+                        options: ['A) A', 'B) B', 'C) Error', 'D) AB'],
+                        correct: 1,
+                        explanation: 'Dynamic binding calls the subclass version at runtime.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Which statement about constructors in inheritance is true?',
+                        options: ['A) Child constructor calls parent constructor automatically', 'B) Parent constructor is never called', 'C) Parent constructor must be private', 'D) None'],
+                        correct: 0,
+                        explanation: 'Superclass constructors run first before subclass constructors.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'What is output?\n\nclass P{ int x=5; }\nclass Q extends P{ int x=10; void print(){ System.out.println(x + " " + super.x); }}\nclass Main{ public static void main(String[] a){ new Q().print(); }}',
+                        options: ['A) 10 5', 'B) 5 10', 'C) 10 10', 'D) 5 5'],
+                        correct: 0,
+                        explanation: 'x in Q hides parent\'s x; super.x accesses the superclass variable.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'Which class is at the top of the Java class hierarchy?',
+                        options: ['A) System', 'B) Object', 'C) Runtime', 'D) ClassLoader'],
+                        correct: 1,
+                        explanation: 'All classes implicitly extend java.lang.Object.',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'What is true for an abstract method?',
+                        options: ['A) It has a body', 'B) It is declared with abstract', 'C) It cannot be overridden', 'D) It must be private'],
+                        correct: 1,
+                        explanation: 'Abstract methods declare a signature without implementation.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'Which of these can a subclass override?',
+                        options: ['A) final method', 'B) static method', 'C) private method', 'D) non-final instance method'],
+                        correct: 3,
+                        explanation: 'Only non-final instance methods are overridable.',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'Which concept allows a reference variable to point to objects of different types at runtime?',
+                        options: ['A) Encapsulation', 'B) Polymorphism', 'C) Inheritance', 'D) Abstraction'],
+                        correct: 1,
+                        explanation: 'Polymorphism enables a single reference to call methods on different objects.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'Output of the following:\n\nclass A{ void show(){ System.out.println("A"); } }\nclass B extends A{ void show(){ System.out.println("B"); super.show(); } }\nclass Main{ public static void main(String[] a){ new B().show(); } }',
+                        options: ['A) A', 'B) B', 'C) AB', 'D) Error'],
+                        correct: 2,
+                        explanation: 'B.show() runs, then calls super.show().',
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'Can a constructor be inherited?',
+                        options: ['A) Yes', 'B) No', 'C) Only protected ones', 'D) Depends'],
+                        correct: 1,
+                        explanation: 'Constructors are not inherited but can be called via super().',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'Which of these best describes runtime polymorphism?',
+                        options: ['A) Method overloading', 'B) Method overriding', 'C) Operator overloading', 'D) Constructor overloading'],
+                        correct: 1,
+                        explanation: 'Overriding decisions are made at runtime.',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'What will be the output?\n\nclass A{ A(){ System.out.print("A"); } }\nclass B extends A{ B(){ System.out.print("B"); } }\nclass C extends B{ C(){ System.out.print("C"); } }\nclass Main{ public static void main(String[] a){ new C(); } }',
+                        options: ['A) ABC', 'B) CBA', 'C) A', 'D) Compilation error'],
+                        correct: 0,
+                        explanation: 'Constructors execute from base to derived.',
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'Which keyword is used to refer to the immediate parent class object?',
+                        options: ['A) super', 'B) this', 'C) extends', 'D) base'],
+                        correct: 0,
+                        explanation: 'super refers to the immediate parent class.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'What is output?\n\nclass Parent{ void show(){ System.out.println("Parent"); } }\nclass Child extends Parent{ void show(){ System.out.println("Child"); } }\nclass Main{ public static void main(String[] a){ Parent p = new Child(); p.show(); } }',
+                        options: ['A) Parent', 'B) Child', 'C) Error', 'D) None'],
+                        correct: 1,
+                        explanation: 'Runtime binding calls the child\'s method through parent reference.',
+                        language: 'java'
+                    }
+                ]
+            },
+            'topic4': {
+                name: 'Packages and Interfaces',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which keyword is used to define a package in Java?',
+                        options: ['A) import', 'B) package', 'C) include', 'D) namespace'],
+                        correct: 1,
+                        explanation: 'The package keyword is placed at the top of a file to specify its package.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Which keyword is used to bring a package\'s classes into visibility?',
+                        options: ['A) include', 'B) package', 'C) import', 'D) expose'],
+                        correct: 2,
+                        explanation: 'import makes classes or interfaces from another package accessible.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Which of these statements is true about packages?',
+                        options: ['A) Packages cannot contain subpackages', 'B) Packages organize classes', 'C) Packages are optional but recommended', 'D) Both B and C'],
+                        correct: 3,
+                        explanation: 'Packages group related classes logically.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'What is the correct syntax to access Scanner class from java.util package?',
+                        options: ['A) import java.util.*;', 'B) include java.util.Scanner;', 'C) import java.util.Scanner;', 'D) Both A and C'],
+                        correct: 3,
+                        explanation: 'You can import a specific class or all classes in a package.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which of the following is not an access modifier?',
+                        options: ['A) public', 'B) private', 'C) protected', 'D) internal'],
+                        correct: 3,
+                        explanation: 'internal is a C# modifier, not Java.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'If a member has no access modifier, what is its visibility?',
+                        options: ['A) public', 'B) protected', 'C) private', 'D) package-private'],
+                        correct: 3,
+                        explanation: 'Default (no modifier) = visible within the same package only.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Which keyword is used to implement an interface?',
+                        options: ['A) extends', 'B) implements', 'C) interface', 'D) import'],
+                        correct: 1,
+                        explanation: 'A class implements an interface using implements.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Which of these can an interface contain?',
+                        options: ['A) abstract methods only', 'B) default and static methods', 'C) fields (public static final)', 'D) All of the above'],
+                        correct: 3,
+                        explanation: 'Modern interfaces can include constants, abstract, default, and static methods.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Can an interface extend another interface?',
+                        options: ['A) Yes', 'B) No', 'C) Only public ones', 'D) Only one interface'],
+                        correct: 0,
+                        explanation: 'Interfaces can extend multiple interfaces.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Which of the following is true about interface methods by default?',
+                        options: ['A) private', 'B) protected', 'C) public and abstract', 'D) static'],
+                        correct: 2,
+                        explanation: 'Interface methods are implicitly public and abstract unless declared otherwise.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'What will be the output?\n\ninterface A { int x = 10; }\nclass B implements A {\n  void show(){ System.out.println(x); }\n  public static void main(String[] a){ new B().show(); }\n}',
+                        options: ['A) 0', 'B) 10', 'C) Error', 'D) null'],
+                        correct: 1,
+                        explanation: 'Interface variables are public, static, and final; accessible directly.',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'Can a class implement multiple interfaces?',
+                        options: ['A) Yes', 'B) No', 'C) Only one', 'D) Only if abstract'],
+                        correct: 0,
+                        explanation: 'Java supports multiple inheritance through interfaces.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'What happens if two interfaces have a method with the same signature?',
+                        options: ['A) Compilation error', 'B) Method ambiguity', 'C) No error; one implementation is enough', 'D) Runtime exception'],
+                        correct: 2,
+                        explanation: 'The implementing class defines one version to satisfy both.',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'Can an interface extend a class?',
+                        options: ['A) Yes', 'B) No', 'C) Only abstract classes', 'D) Sometimes'],
+                        correct: 1,
+                        explanation: 'Interfaces can only extend interfaces, not classes.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'What is output?\n\ninterface A { default void print(){ System.out.println("A"); } }\ninterface B { default void print(){ System.out.println("B"); } }\nclass C implements A,B {\n  public void print(){ A.super.print(); }\n  public static void main(String[] a){ new C().print(); }\n}',
+                        options: ['A) A', 'B) B', 'C) AB', 'D) Error'],
+                        correct: 0,
+                        explanation: 'When multiple default methods conflict, class must override and can call a specific one using A.super.method().',
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'What is the modifier of interface variables?',
+                        options: ['A) private', 'B) protected', 'C) public static final', 'D) package-private'],
+                        correct: 2,
+                        explanation: 'Interface fields are constants by default.',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'Which keyword is used to inherit from a superclass and an interface together?',
+                        options: ['A) extends, implements', 'B) implements, extends', 'C) inherit, interface', 'D) combine'],
+                        correct: 0,
+                        explanation: 'Syntax: class X extends A implements B, C.',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'Can an interface have a constructor?',
+                        options: ['A) Yes', 'B) No', 'C) Only default one', 'D) Only static'],
+                        correct: 1,
+                        explanation: 'Interfaces cannot be instantiated directly, hence no constructors.',
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'Which interface method can have a body?',
+                        options: ['A) abstract', 'B) static', 'C) default', 'D) Both B and C'],
+                        correct: 3,
+                        explanation: 'default and static methods in interfaces have bodies.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'What is the output?\n\ninterface A { default void print(){ System.out.println("A"); } }\ninterface B { default void print(){ System.out.println("B"); } }\nclass C implements A,B {\n  public void print(){ A.super.print(); }\n  public static void main(String[] a){ new C().print(); }\n}',
+                        options: ['A) A', 'B) B', 'C) AB', 'D) Error'],
+                        correct: 0,
+                        explanation: 'When multiple default methods conflict, class must override and can call a specific one using A.super.method().',
+                        language: 'java'
+                    }
+                ]
+            },
+            'topic5': {
+                name: 'Exception Handling',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which exception type is not checked at compile time?',
+                        options: ['A) IOException', 'B) SQLException', 'C) NullPointerException', 'D) FileNotFoundException'],
+                        correct: 2,
+                        explanation: 'NullPointerException is an unchecked runtime exception; the others are checked.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'What will be printed?\n\nclass Test {\n  public static void main(String[] a) {\n    try {\n      int x = 5/0;\n      System.out.print("A");\n    } catch(ArithmeticException e) {\n      System.out.print("B");\n    } finally {\n      System.out.print("C");\n    }\n  }\n}',
+                        options: ['A) A', 'B) B', 'C) BC', 'D) ABC'],
+                        correct: 2,
+                        explanation: '/0 throws ArithmeticException → catch prints B → finally prints C.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Which statement about finally-block execution is false?',
+                        options: ['A) It always executes if no System.exit() is called', 'B) It executes even after an exception', 'C) It executes before any return statement completes', 'D) It never executes after System.exit(0)'],
+                        correct: 3,
+                        explanation: 'If System.exit(0) is called, the JVM terminates → finally does not run.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Output?\n\nclass Demo {\n  static int test() {\n    try { return 10/0; }\n    catch(Exception e){ return 20; }\n    finally { return 30; }\n  }\n  public static void main(String[] a){ System.out.println(test()); }\n}',
+                        options: ['A) 10', 'B) 20', 'C) 30', 'D) Runtime error'],
+                        correct: 2,
+                        explanation: 'A return inside finally overrides earlier returns.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which keyword is used to re-throw an exception caught in a catch block?',
+                        options: ['A) throw', 'B) throws', 'C) rethrow', 'D) raise'],
+                        correct: 0,
+                        explanation: 'Use throw e; to re-throw a caught exception object.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Which of these will cause a compilation error?\n\ntry { int a = 5; }\ncatch(Exception e) { System.out.println(e); }\nfinally { int a = 10/0; }',
+                        options: ['A) No error', 'B) Compile error', 'C) Runtime ArithmeticException', 'D) Unchecked warning'],
+                        correct: 2,
+                        explanation: 'Finally executes after try/catch and throws a Runtime ArithmeticException at execution.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'In which order should exceptions be caught when subclass/superclass are related?',
+                        options: ['A) Subclass → Superclass', 'B) Superclass → Subclass', 'C) Any order', 'D) Does not matter'],
+                        correct: 0,
+                        explanation: 'Catch more specific first; otherwise the compiler flags unreachable code.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'What is the output?\n\nclass X {\n  void fun() throws Exception { throw new Exception("A"); }\n}\nclass Y extends X {\n  void fun() throws ArithmeticException { throw new ArithmeticException("B"); }\n  public static void main(String[] a){\n    try{ new Y().fun(); }\n    catch(Exception e){ System.out.print(e.getMessage()); }\n  }\n}',
+                        options: ['A) A', 'B) B', 'C) Compilation error', 'D) Runtime error'],
+                        correct: 1,
+                        explanation: 'Subclass method may declare fewer or narrower (unchecked) exceptions; it throws ArithmeticException at runtime.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Which of these is a checked exception?',
+                        options: ['A) NullPointerException', 'B) ArrayIndexOutOfBoundsException', 'C) ClassNotFoundException', 'D) ArithmeticException'],
+                        correct: 2,
+                        explanation: 'ClassNotFoundException is checked.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'What happens here?\n\ntry {\n  int arr[] = new int[5];\n  arr[6] = 10;\n} catch(ArithmeticException e) {\n  System.out.println("AE");\n} catch(Exception e) {\n  System.out.println("E");\n}',
+                        options: ['A) AE', 'B) E', 'C) Runtime error', 'D) Compilation error'],
+                        correct: 1,
+                        explanation: 'Array index issue → ArrayIndexOutOfBoundsException caught by generic Exception block.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'What is the base class of all exceptions in Java?',
+                        options: ['A) Throwable', 'B) Exception', 'C) RuntimeException', 'D) Error'],
+                        correct: 0,
+                        explanation: 'Both Exception and Error extend Throwable.',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'Which block can exist without catch?',
+                        options: ['A) try', 'B) catch', 'C) finally', 'D) try–finally combination'],
+                        correct: 3,
+                        explanation: 'try must be followed by either catch or finally; try–finally is legal.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'What output?\n\ntry {\n  System.out.print("A");\n  throw new NullPointerException();\n} catch(ArithmeticException e) {\n  System.out.print("B");\n} finally {\n  System.out.print("C");\n}',
+                        options: ['A) AC', 'B) ABC', 'C) BC', 'D) A'],
+                        correct: 0,
+                        explanation: 'NPE is uncaught, finally runs, then program stops.',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'Which of the following cannot be caught by a try–catch block?',
+                        options: ['A) Error', 'B) Exception', 'C) Throwable', 'D) RuntimeException'],
+                        correct: 0,
+                        explanation: 'Errors (like OutOfMemoryError) should not be caught; they represent serious system issues.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'What will happen?\n\npublic class Demo {\n  public static void main(String[] args) throws Exception {\n    throw new RuntimeException("X");\n  }\n}',
+                        options: ['A) Compilation error', 'B) Program terminates with RuntimeException: X', 'C) Silent exit', 'D) Exception caught by default handler'],
+                        correct: 1,
+                        explanation: 'No catch → default handler prints stack trace and terminates program.',
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'Custom exception class must inherit from _______.',
+                        options: ['A) Error', 'B) Throwable', 'C) Exception', 'D) RuntimeException'],
+                        correct: 2,
+                        explanation: 'Extending Exception creates a checked user-defined exception.',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'Output?\n\nclass MyEx extends Exception { MyEx(String s){super(s);} }\npublic class Main {\n  static void test() throws MyEx { throw new MyEx("Custom"); }\n  public static void main(String[] a){\n    try{ test(); }\n    catch(MyEx e){ System.out.println("Caught: " + e.getMessage()); }\n  }\n}',
+                        options: ['A) Caught: Custom', 'B) Error', 'C) Compilation error', 'D) No output'],
+                        correct: 0,
+                        explanation: 'Custom exception is properly thrown and caught.',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'Which will be printed?\n\ntry {\n  int a = Integer.parseInt("ten");\n} catch(NumberFormatException e) {\n  System.out.print("NFE");\n} finally {\n  System.out.print("Done");\n}',
+                        options: ['A) NFE', 'B) Done', 'C) NFEDone', 'D) Runtime error'],
+                        correct: 2,
+                        explanation: 'NumberFormatException caught, printing "NFE", then finally executes.',
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'Which is the correct declaration of a method that may throw IOException?',
+                        options: ['A) void read() throw IOException;', 'B) void read() throws IOException;', 'C) throws void read(IOException);', 'D) void read(IOException);'],
+                        correct: 1,
+                        explanation: 'Use throws in the method signature.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'Output?\n\nclass A {\n  public static void main(String[] a){\n    try {\n      throw new Exception("Try");\n    } catch(Exception e) {\n      System.out.print("Catch ");\n    } finally {\n      System.out.print("Finally");\n    }\n  }\n}',
+                        options: ['A) TryFinally', 'B) CatchFinally', 'C) Catch Finally', 'D) FinallyCatch'],
+                        correct: 1,
+                        explanation: 'Exception caught, then finally block executes.',
+                        language: 'java'
+                    }
+                ]
+            },
+            'topic6': {
+                name: 'Multithreading',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which class is used to create a thread by extending Thread class?',
+                        options: ['A) Runnable', 'B) Thread', 'C) Executor', 'D) Callable'],
+                        correct: 1,
+                        explanation: 'Extend Thread class and override run() method.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'What is the default priority of a thread in Java?',
+                        options: ['A) 1', 'B) 5', 'C) 10', 'D) 0'],
+                        correct: 1,
+                        explanation: 'Default thread priority is 5 (NORM_PRIORITY).',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Which method is used to start a thread?',
+                        options: ['A) run()', 'B) start()', 'C) execute()', 'D) begin()'],
+                        correct: 1,
+                        explanation: 'start() method begins thread execution and calls run().',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'What happens when you call run() method directly?',
+                        options: ['A) New thread starts', 'B) run() executes in current thread', 'C) Compilation error', 'D) Runtime error'],
+                        correct: 1,
+                        explanation: 'Calling run() directly executes it in the current thread, not a new thread.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which method causes current thread to wait until another thread dies?',
+                        options: ['A) wait()', 'B) sleep()', 'C) join()', 'D) yield()'],
+                        correct: 2,
+                        explanation: 'join() makes current thread wait for specified thread to complete.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'What is the purpose of synchronized keyword?',
+                        options: ['A) To make code faster', 'B) To prevent deadlock', 'C) To allow multiple threads access simultaneously', 'D) To prevent multiple threads accessing code simultaneously'],
+                        correct: 3,
+                        explanation: 'synchronized prevents multiple threads from executing code block concurrently.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Which method releases the lock in synchronized block?',
+                        options: ['A) notify()', 'B) wait()', 'C) sleep()', 'D) yield()'],
+                        correct: 1,
+                        explanation: 'wait() releases the lock and puts thread in waiting state.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'What is a daemon thread?',
+                        options: ['A) High priority thread', 'B) Thread that runs in background', 'C) Thread that cannot be interrupted', 'D) System thread'],
+                        correct: 1,
+                        explanation: 'Daemon threads are background threads that don\'t prevent JVM from exiting.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Which method is used to check if a thread is alive?',
+                        options: ['A) isRunning()', 'B) isAlive()', 'C) isActive()', 'D) checkAlive()'],
+                        correct: 1,
+                        explanation: 'isAlive() returns true if thread has been started and not died.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'What is thread starvation?',
+                        options: ['A) Thread waiting forever', 'B) Thread not getting CPU time', 'C) Thread running too fast', 'D) Thread creating deadlock'],
+                        correct: 1,
+                        explanation: 'Starvation occurs when a thread cannot gain access to required resources.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'Which method is used to temporarily pause thread execution?',
+                        options: ['A) wait()', 'B) sleep()', 'C) pause()', 'D) stop()'],
+                        correct: 1,
+                        explanation: 'sleep() pauses thread for specified milliseconds.',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'What is a race condition?',
+                        options: ['A) Threads competing for resources', 'B) Threads running at different speeds', 'C) Bug where output depends on sequence of events', 'D) All threads finishing simultaneously'],
+                        correct: 2,
+                        explanation: 'Race condition occurs when output depends on timing of thread execution.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'Which interface is used for threads that return results?',
+                        options: ['A) Runnable', 'B) Thread', 'C) Callable', 'D) Future'],
+                        correct: 2,
+                        explanation: 'Callable can return results and throw exceptions.',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'What is the purpose of ThreadLocal class?',
+                        options: ['A) Create local threads', 'B) Provide thread-local variables', 'C) Localize thread errors', 'D) Manage thread memory'],
+                        correct: 1,
+                        explanation: 'ThreadLocal provides thread-specific storage for variables.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'Which method interrupts a thread?',
+                        options: ['A) stop()', 'B) interrupt()', 'C) kill()', 'D) terminate()'],
+                        correct: 1,
+                        explanation: 'interrupt() sets the interrupt flag for the thread.',
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'What is a deadlock?',
+                        options: ['A) Thread waiting forever', 'B) Circular dependency between threads', 'C) Thread using too much CPU', 'D) Thread crashing system'],
+                        correct: 1,
+                        explanation: 'Deadlock occurs when threads wait for each other in circular dependency.',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'Which method is used to check if thread is interrupted?',
+                        options: ['A) isInterrupted()', 'B) checkInterrupt()', 'C) getInterrupt()', 'D) interrupted()'],
+                        correct: 0,
+                        explanation: 'isInterrupted() checks if thread has been interrupted.',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'What is thread pooling?',
+                        options: ['A) Grouping threads together', 'B) Reusing existing threads', 'C) Sharing thread memory', 'D) Pool of thread objects'],
+                        correct: 1,
+                        explanation: 'Thread pool reuses existing threads to avoid creation overhead.',
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'Which class provides thread-safe collections?',
+                        options: ['A) Collections', 'B) Concurrent', 'C) java.util.concurrent', 'D) ThreadSafe'],
+                        correct: 2,
+                        explanation: 'java.util.concurrent package provides thread-safe collections.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'What is the volatile keyword used for?',
+                        options: ['A) Make variable constant', 'B) Ensure variable visibility across threads', 'C) Make variable faster', 'D) Prevent variable modification'],
+                        correct: 1,
+                        explanation: 'volatile ensures changes to variable are visible to all threads.',
+                        language: 'java'
+                    }
+                ]
+            },
+            'topic7': {
+                name: 'File Handling and I/O',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which of the following is a byte stream class?',
+                        options: ['A) FileReader', 'B) FileWriter', 'C) FileInputStream', 'D) BufferedReader'],
+                        correct: 2,
+                        explanation: 'FileInputStream reads raw bytes from a file.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Which is a character stream class?',
+                        options: ['A) FileOutputStream', 'B) FileReader', 'C) BufferedOutputStream', 'D) InputStream'],
+                        correct: 1,
+                        explanation: 'FileReader handles 16-bit characters automatically using the platform charset.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'What will be printed?\n\nFile f = new File("demo.txt");\nSystem.out.println(f.exists());',
+                        options: ['A) true', 'B) false', 'C) Exception', 'D) 0'],
+                        correct: 1,
+                        explanation: 'exists() returns false when the file is not found.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Which method creates a new empty file on disk?',
+                        options: ['A) create()', 'B) createFile()', 'C) createNewFile()', 'D) makeFile()'],
+                        correct: 2,
+                        explanation: 'f.createNewFile() creates a new file and returns true if successful.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which stream should you use to read text efficiently, line by line?',
+                        options: ['A) FileInputStream', 'B) BufferedReader', 'C) Scanner', 'D) DataInputStream'],
+                        correct: 1,
+                        explanation: 'BufferedReader\'s readLine() is optimized for text input.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Output?\n\ntry(FileWriter fw = new FileWriter("out.txt")){\n  fw.write("Java");\n  fw.write(65);\n}',
+                        options: ['A) Java65', 'B) JavaA', 'C) Error', 'D) Empty'],
+                        correct: 1,
+                        explanation: 'write(65) writes \'A\' since 65 is the ASCII for A.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Which statement closes all opened streams automatically?',
+                        options: ['A) fw.close()', 'B) try-catch', 'C) try-with-resources', 'D) finally'],
+                        correct: 2,
+                        explanation: 'try(FileWriter fw = ...) auto-closes the resource.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Output?\n\nFileInputStream in = new FileInputStream("data.txt");\nint i;\nwhile((i = in.read()) != -1) {\n  if(i == \'a\') break;\n}\nSystem.out.print(i);',
+                        options: ['A) 97', 'B) \'a\'', 'C) Error', 'D) -1'],
+                        correct: 0,
+                        explanation: 'read() returns integer byte values; \'a\' → 97.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Which class is used for object serialization?',
+                        options: ['A) ObjectInputStream', 'B) ObjectOutputStream', 'C) Both A and B', 'D) Serializable'],
+                        correct: 2,
+                        explanation: 'Objects are written via ObjectOutputStream and read via ObjectInputStream.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Which interface must a class implement to be serializable?',
+                        options: ['A) Cloneable', 'B) Serializable', 'C) Externalizable', 'D) Readable'],
+                        correct: 1,
+                        explanation: 'Serializable is a marker interface that enables serialization.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'What will happen?\n\nclass Emp implements Serializable {\n  int id; transient int salary;\n  Emp(int i,int s){id=i;salary=s;}\n}\nEmp e = new Emp(1,5000);\nObjectOutputStream o = new ObjectOutputStream(new FileOutputStream("e.dat"));\no.writeObject(e);',
+                        options: ['A) salary is also saved', 'B) salary ignored', 'C) Compilation error', 'D) Exception'],
+                        correct: 1,
+                        explanation: 'transient fields are skipped during serialization.',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'Which class is at the top of the Java class hierarchy?',
+                        options: ['A) System', 'B) Object', 'C) Runtime', 'D) ClassLoader'],
+                        correct: 1,
+                        explanation: 'All classes implicitly extend java.lang.Object.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'What is true for an abstract method?',
+                        options: ['A) It has a body', 'B) It is declared with abstract', 'C) It cannot be overridden', 'D) It must be private'],
+                        correct: 1,
+                        explanation: 'Abstract methods declare a signature without implementation.',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'Which of these can a subclass override?',
+                        options: ['A) final method', 'B) static method', 'C) private method', 'D) non-final instance method'],
+                        correct: 3,
+                        explanation: 'Only non-final instance methods are overridable.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'Which statement about interfaces and inheritance is true?',
+                        options: ['A) A class can extend multiple classes', 'B) An interface can extend another interface', 'C) A class cannot implement multiple interfaces', 'D) All of the above'],
+                        correct: 1,
+                        explanation: 'Interfaces can extend multiple interfaces.',
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'Output of the following:\n\nclass A{ void show(){ System.out.println("A"); } }\nclass B extends A{ void show(){ System.out.println("B"); super.show(); } }\nclass Main{ public static void main(String[] a){ new B().show(); } }',
+                        options: ['A) A', 'B) B', 'C) BA', 'D) AB'],
+                        correct: 3,
+                        explanation: 'B.show() runs, then calls super.show().',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'Can a constructor be inherited?',
+                        options: ['A) Yes', 'B) No', 'C) Only protected ones', 'D) Depends'],
+                        correct: 1,
+                        explanation: 'Constructors are not inherited but can be called via super().',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'Which of these best describes runtime polymorphism?',
+                        options: ['A) Method overloading', 'B) Method overriding', 'C) Operator overloading', 'D) Constructor overloading'],
+                        correct: 1,
+                        explanation: 'Overriding decisions are made at runtime.',
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'What will be the output?',
+                        code: `class A{
+        A(){ System.out.print("A"); }
+        }
+        class B extends A{ 
+        B(){ System.out.print("B"); } 
+        }
+        class C extends B{ 
+        C(){ System.out.print("C"); } 
+        }
+        class Main{ 
+        public static void main(String[] a){ new C(); } 
+        }`,
+                        options: ['A) ABC', 'B) CBA', 'C) A', 'D) Compilation error'],
+                        correct: 0,
+                        explanation: 'Constructors execute from base to derived.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'Which keyword is used to refer to the immediate parent class object?',
+                        options: ['A) super', 'B) this', 'C) extends', 'D) base'],
+                        correct: 0,
+                        explanation: 'super refers to the immediate parent class.',
+                        language: 'java'
+                    }
+                ]
+            },        
+            'topic8': {
+                name: 'GUI Programming (AWT & Swing)',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which package contains all AWT classes?',
+                        options: ['A) java.swing', 'B) java.awt', 'C) javax.swing', 'D) java.gui'],
+                        correct: 1,
+                        explanation: 'java.awt provides AWT component and event classes.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Which statement about Swing is true?',
+                        options: ['A) Swing is heavyweight.', 'B) Swing depends on OS widgets.', 'C) Swing is lightweight and platform-independent.', 'D) Swing cannot use AWT event model.'],
+                        correct: 2,
+                        explanation: 'Swing components are lightweight, written in pure Java.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Which class is the root container for Swing applications?',
+                        options: ['A) Frame', 'B) Window', 'C) JFrame', 'D) JComponent'],
+                        correct: 2,
+                        explanation: 'JFrame provides a top-level window for Swing GUIs.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'What is output?',
+                        code: `JButton b = new JButton("Click");
+        System.out.println(b.getText());`,
+                        options: ['A) Click', 'B) null', 'C) JButton@hexcode', 'D) Error'],
+                        correct: 0,
+                        explanation: 'getText() returns the button label.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Which layout places components row-wise, left to right?',
+                        options: ['A) BorderLayout', 'B) FlowLayout', 'C) GridLayout', 'D) CardLayout'],
+                        correct: 1,
+                        explanation: 'FlowLayout arranges components in a row, wrapping as needed.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Default layout for Frame is ______.',
+                        options: ['A) FlowLayout', 'B) BorderLayout', 'C) GridLayout', 'D) None'],
+                        correct: 1,
+                        explanation: 'Top-level containers (Frame, JFrame) use BorderLayout by default.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Output?',
+                        code: `Frame f = new Frame("Test");
+        Button b = new Button("OK");
+        f.add(b);
+        f.setVisible(true);
+        System.out.print(f.getTitle());`,
+                        options: ['A) OK', 'B) Test', 'C) null', 'D) Error'],
+                        correct: 1,
+                        explanation: 'getTitle() returns the frame title "Test".',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Which event class handles button clicks in AWT?',
+                        options: ['A) ActionEvent', 'B) MouseEvent', 'C) KeyEvent', 'D) ItemEvent'],
+                        correct: 0,
+                        explanation: 'ActionEvent handles button clicks.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Which listener must be implemented to capture button click?',
+                        options: ['A) MouseListener', 'B) KeyListener', 'C) ActionListener', 'D) WindowListener'],
+                        correct: 2,
+                        explanation: 'ActionListener handles button click events.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Output?',
+                        code: `public void actionPerformed(ActionEvent e){
+            System.out.println(e.getActionCommand());
+        }`,
+                        options: ['A) null', 'B) Save', 'C) actionPerformed', 'D) Error'],
+                        correct: 1,
+                        explanation: 'getActionCommand() returns the button label by default.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'Which component allows user text input in Swing?',
+                        options: ['A) JLabel', 'B) JTextField', 'C) JButton', 'D) JCheckBox'],
+                        correct: 1,
+                        explanation: 'JTextField allows text input.',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'Which statement is true for JLabel?',
+                        options: ['A) Editable text component', 'B) Can display text and icon', 'C) Generates ActionEvent', 'D) Requires LayoutManager'],
+                        correct: 1,
+                        explanation: 'JLabel can display both text and images/icons.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'What is output?',
+                        code: `JCheckBox c = new JCheckBox("Java", true);
+        System.out.println(c.isSelected());`,
+                        options: ['A) true', 'B) false', 'C) null', 'D) Error'],
+                        correct: 0,
+                        explanation: 'isSelected() returns true when checkbox is checked.',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'Which layout divides the container into 5 areas: NORTH, SOUTH, EAST, WEST, CENTER?',
+                        options: ['A) FlowLayout', 'B) BorderLayout', 'C) GridLayout', 'D) CardLayout'],
+                        correct: 1,
+                        explanation: 'BorderLayout uses these five regions.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'Output?',
+                        code: `JFrame f = new JFrame();
+        f.setSize(200,200);
+        f.setVisible(true);
+        System.out.print(f.isVisible());`,
+                        options: ['A) true', 'B) false', 'C) null', 'D) Compile error'],
+                        correct: 0,
+                        explanation: 'isVisible() returns true when frame is visible.',
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'Which of the following is not a valid event source?',
+                        options: ['A) JButton', 'B) JTextField', 'C) JLabel', 'D) JCheckBox'],
+                        correct: 2,
+                        explanation: 'JLabel is passive; doesn\'t generate events.',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'What happens if you call setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)?',
+                        options: ['A) Frame hides only', 'B) JVM exits when frame closes', 'C) Closes current window only', 'D) No effect'],
+                        correct: 1,
+                        explanation: 'EXIT_ON_CLOSE terminates the application when frame closes.',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'Output?',
+                        code: `JRadioButton r1 = new JRadioButton("A", true);
+        JRadioButton r2 = new JRadioButton("B", false);
+        ButtonGroup g = new ButtonGroup();
+        g.add(r1); g.add(r2);
+        r2.setSelected(true);
+        System.out.print(r1.isSelected()+" "+r2.isSelected());`,
+                        options: ['A) true false', 'B) false true', 'C) true true', 'D) false false'],
+                        correct: 1,
+                        explanation: 'Only one radio button in a group can be selected.',
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'Which Swing class is used to display a message dialog?',
+                        options: ['A) JOptionPane', 'B) JDialog', 'C) JWindow', 'D) JMessage'],
+                        correct: 0,
+                        explanation: 'JOptionPane provides message dialogs.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'Output?',
+                        code: `int x = JOptionPane.showConfirmDialog(null,"Exit?");
+        System.out.println(x==JOptionPane.YES_OPTION);`,
+                        options: ['A) true', 'B) false', 'C) 0', 'D) Exception'],
+                        correct: 0,
+                        explanation: 'YES_OPTION constant = 0; comparison returns true.',
+                        language: 'java'
+                    }
+                ]
+            },
+            'topic9': {
+                name: 'JDBC (Database Connectivity)',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which package provides JDBC classes?',
+                        options: ['A) java.io', 'B) java.sql', 'C) javax.db', 'D) java.jdbc'],
+                        correct: 1,
+                        explanation: 'All core JDBC interfaces reside in java.sql.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'Which JDBC driver type is the pure Java driver?',
+                        options: ['A) Type 1', 'B) Type 2', 'C) Type 3', 'D) Type 4'],
+                        correct: 3,
+                        explanation: 'Type 4 (thin driver) converts JDBC calls directly to vendor-specific protocol in pure Java.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Which interface is used to execute SQL queries?',
+                        options: ['A) Connection', 'B) Statement', 'C) DriverManager', 'D) ResultSet'],
+                        correct: 1,
+                        explanation: 'Statement and its variants run SQL commands.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'Which method executes SELECT queries?',
+                        options: ['A) execute()', 'B) executeQuery()', 'C) executeUpdate()', 'D) runQuery()'],
+                        correct: 1,
+                        explanation: 'executeQuery() returns a ResultSet.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'What is returned by executeUpdate()?',
+                        options: ['A) ResultSet', 'B) void', 'C) number of rows affected', 'D) boolean'],
+                        correct: 2,
+                        explanation: 'executeUpdate() returns the number of rows affected.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'Which code correctly loads the MySQL JDBC driver (new versions)?',
+                        options: ['A) Class.forName("oracle.jdbc.Driver");', 'B) Class.forName("com.mysql.cj.jdbc.Driver");', 'C) DriverManager.load("mysql.Driver");', 'D) new mysql.Driver();'],
+                        correct: 1,
+                        explanation: 'Modern MySQL uses com.mysql.cj.jdbc.Driver.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Output?',
+                        code: `Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+        "jdbc:mysql://localhost:3306/test","root","pass");
+        System.out.println(con!=null);`,
+                        options: ['A) true', 'B) false', 'C) null', 'D) Exception'],
+                        correct: 0,
+                        explanation: 'Successful connection returns non-null Connection object.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Which statement is true about PreparedStatement?',
+                        options: ['A) Compiles SQL each time', 'B) Supports parameterized queries', 'C) Slower than Statement', 'D) Cannot prevent SQL injection'],
+                        correct: 1,
+                        explanation: 'PreparedStatement is precompiled and safer for dynamic data.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Output?',
+                        code: `PreparedStatement ps = con.prepareStatement(
+        "INSERT INTO emp VALUES (?,?)");
+        ps.setInt(1,101);
+        ps.setString(2,"Riya");
+        int n = ps.executeUpdate();
+        System.out.print(n>0);`,
+                        options: ['A) true', 'B) false', 'C) 0', 'D) Exception'],
+                        correct: 0,
+                        explanation: 'executeUpdate() returns rows affected → >0 means success.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'Which method moves the cursor to the next row of a ResultSet?',
+                        options: ['A) next()', 'B) move()', 'C) forward()', 'D) step()'],
+                        correct: 0,
+                        explanation: 'next() moves to the next row.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'Output?',
+                        code: `ResultSet rs = st.executeQuery("SELECT name FROM emp");
+        rs.next();
+        System.out.println(rs.getString(1));`,
+                        options: ['A) Ajay', 'B) null', 'C) Error', 'D) 0'],
+                        correct: 0,
+                        explanation: 'Gets the first column value from the current row.',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'What happens if you call rs.getInt("salary") before rs.next()?',
+                        options: ['A) Returns 0', 'B) Throws SQLException', 'C) Returns null', 'D) Undefined'],
+                        correct: 1,
+                        explanation: 'Cursor not positioned; ResultSet access throws SQLException.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'Which method closes an open connection?',
+                        options: ['A) terminate()', 'B) stop()', 'C) close()', 'D) release()'],
+                        correct: 2,
+                        explanation: 'close() releases database resources.',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'Output?',
+                        code: `Connection c = DriverManager.getConnection(url,user,pass);
+        Statement s = c.createStatement();
+        boolean b = s.execute("SELECT * FROM student");
+        System.out.println(b);`,
+                        options: ['A) true', 'B) false', 'C) Exception', 'D) 0'],
+                        correct: 0,
+                        explanation: 'execute() returns true when a ResultSet is produced.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'Which of these can be used for batch processing?',
+                        options: ['A) Statement only', 'B) PreparedStatement only', 'C) Both', 'D) None'],
+                        correct: 2,
+                        explanation: 'Both Statement and PreparedStatement support addBatch() and executeBatch().',
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'Output?',
+                        code: `con.setAutoCommit(false);
+        st.executeUpdate("INSERT INTO emp VALUES(1,'A')");
+        con.rollback();
+        System.out.println("Done");`,
+                        options: ['A) Row inserted', 'B) Row not inserted', 'C) Error', 'D) Commit needed'],
+                        correct: 1,
+                        explanation: 'rollback() cancels the uncommitted transaction.',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'Which SQL operation will executeUpdate() handle?',
+                        options: ['A) SELECT', 'B) INSERT', 'C) CREATE TABLE', 'D) Both B and C'],
+                        correct: 3,
+                        explanation: 'executeUpdate() handles data modification and DDL statements.',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'What will happen if database URL is wrong?',
+                        options: ['A) SQLException', 'B) NullPointerException', 'C) IOException', 'D) No error'],
+                        correct: 0,
+                        explanation: 'Invalid URL throws SQLException.',
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'What is true about ResultSet.TYPE_SCROLL_INSENSITIVE?',
+                        options: ['A) Can move only forward', 'B) Scrolls both ways but not sensitive to DB changes', 'C) Auto-updates on DB change', 'D) Read-only'],
+                        correct: 1,
+                        explanation: 'TYPE_SCROLL_INSENSITIVE allows bidirectional scrolling but doesn\'t reflect DB changes.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'Output?',
+                        code: `ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM emp");
+        rs.next();
+        System.out.println(rs.getInt(1));`,
+                        options: ['A) 0', 'B) 5', 'C) true', 'D) Exception'],
+                        correct: 1,
+                        explanation: 'COUNT(*) returns total row count.',
+                        language: 'java'
+                    }
+                ]
+            },
+            'topic10': {
+                name: 'Integrated Java Applications',
+                questions: [
+                    {
+                        id: 1,
+                        text: 'Which of these combinations is correct for a GUI-based database app?',
+                        options: ['A) Swing + JDBC', 'B) AWT + java.io', 'C) JavaFX + java.sql', 'D) Both A and C'],
+                        correct: 3,
+                        explanation: 'Both Swing/JDBC and JavaFX/JDBC can create GUI + database apps.',
+                        language: 'java'
+                    },
+                    {
+                        id: 2,
+                        text: 'In a Swing+JDBC app, which layer handles database logic?',
+                        options: ['A) View layer', 'B) Model layer', 'C) Controller layer', 'D) GUI thread'],
+                        correct: 1,
+                        explanation: 'Model layer communicates with the DB; View = UI, Controller = events.',
+                        language: 'java'
+                    },
+                    {
+                        id: 3,
+                        text: 'Output?',
+                        code: `Connection c = DriverManager.getConnection(url,u,p);
+        PreparedStatement ps = c.prepareStatement(
+        "SELECT name FROM emp WHERE id=?");
+        ps.setInt(1,101);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()) System.out.print(rs.getString(1));
+        else System.out.print("No");`,
+                        options: ['A) No', 'B) Riya', 'C) null', 'D) Error'],
+                        correct: 1,
+                        explanation: 'Query retrieves matching row → prints value of column 1.',
+                        language: 'java'
+                    },
+                    {
+                        id: 4,
+                        text: 'In a Swing form, which method is used to capture button click?',
+                        options: ['A) onClick()', 'B) actionPerformed()', 'C) clickEvent()', 'D) mousePressed()'],
+                        correct: 1,
+                        explanation: 'actionPerformed() handles button click events.',
+                        language: 'java'
+                    },
+                    {
+                        id: 5,
+                        text: 'Output?',
+                        code: `JButton b = new JButton("Insert");
+        b.addActionListener(e -> System.out.print("Pressed"));
+        b.doClick();`,
+                        options: ['A) Pressed', 'B) No output', 'C) Exception', 'D) Compile error'],
+                        correct: 0,
+                        explanation: 'doClick() programmatically triggers the ActionEvent.',
+                        language: 'java'
+                    },
+                    {
+                        id: 6,
+                        text: 'If a GUI thread executes a long JDBC query directly, what happens?',
+                        options: ['A) GUI freezes', 'B) Query runs asynchronously', 'C) No issue', 'D) Automatic threading'],
+                        correct: 0,
+                        explanation: 'Swing uses a single Event Dispatch Thread; blocking operations freeze UI.',
+                        language: 'java'
+                    },
+                    {
+                        id: 7,
+                        text: 'Best practice for long JDBC tasks in Swing:',
+                        options: ['A) Use Thread.sleep()', 'B) Use SwingWorker or background thread', 'C) Run inside actionPerformed()', 'D) Use static methods'],
+                        correct: 1,
+                        explanation: 'SwingWorker prevents UI freezing during long operations.',
+                        language: 'java'
+                    },
+                    {
+                        id: 8,
+                        text: 'Output?',
+                        code: `String name = t1.getText();
+        PreparedStatement ps = con.prepareStatement(
+        "INSERT INTO student(name) VALUES(?)");
+        ps.setString(1,name);
+        int n = ps.executeUpdate();
+        System.out.print(n);`,
+                        options: ['A) 1', 'B) 0', 'C) Ravi', 'D) Exception'],
+                        correct: 0,
+                        explanation: 'executeUpdate() returns rows affected → 1 row inserted.',
+                        language: 'java'
+                    },
+                    {
+                        id: 9,
+                        text: 'Which component shows tabular data in Swing?',
+                        options: ['A) JTextArea', 'B) JTable', 'C) JList', 'D) JPanel'],
+                        correct: 1,
+                        explanation: 'JTable can display database results.',
+                        language: 'java'
+                    },
+                    {
+                        id: 10,
+                        text: 'What is the correct JDBC code to fill a JTable?',
+                        options: ['A) Directly read SQL file into JTable', 'B) Fetch ResultSet → convert to TableModel → setModel()', 'C) Use FileReader', 'D) JTable automatically connects to DB'],
+                        correct: 1,
+                        explanation: 'ResultSet must be converted to a TableModel for JTable.',
+                        language: 'java'
+                    },
+                    {
+                        id: 11,
+                        text: 'Output?',
+                        code: `try(Connection c = DriverManager.getConnection(url,u,p)){
+            Statement s = c.createStatement();
+            s.execute("CREATE TABLE demo(id INT)");
+            System.out.print("OK");
+        }`,
+                        options: ['A) OK', 'B) false', 'C) Exception', 'D) 0'],
+                        correct: 0,
+                        explanation: 'Successful execution prints "OK".',
+                        language: 'java'
+                    },
+                    {
+                        id: 12,
+                        text: 'Which listener handles text field input events?',
+                        options: ['A) ActionListener', 'B) KeyListener', 'C) FocusListener', 'D) All of these'],
+                        correct: 3,
+                        explanation: 'All can be used, depending on when the event should be captured.',
+                        language: 'java'
+                    },
+                    {
+                        id: 13,
+                        text: 'Output?',
+                        code: `if(con == null) System.out.print("No DB");
+        else System.out.print(con.isClosed());`,
+                        options: ['A) true', 'B) false', 'C) null', 'D) Error'],
+                        correct: 1,
+                        explanation: 'isClosed() returns false if connection is still active.',
+                        language: 'java'
+                    },
+                    {
+                        id: 14,
+                        text: 'In an MVC Swing + JDBC app, where should SQL queries reside?',
+                        options: ['A) View', 'B) Controller', 'C) Model', 'D) Utility'],
+                        correct: 2,
+                        explanation: 'Model layer contains database logic and SQL queries.',
+                        language: 'java'
+                    },
+                    {
+                        id: 15,
+                        text: 'What happens if ResultSet is not closed after use?',
+                        options: ['A) Memory leak', 'B) Auto closed by GC immediately', 'C) No effect', 'D) SQLException'],
+                        correct: 0,
+                        explanation: 'Leaving ResultSet open holds DB cursors until GC closes or timeout occurs.',
+                        language: 'java'
+                    },
+                    {
+                        id: 16,
+                        text: 'Output?',
+                        code: `JOptionPane.showMessageDialog(null, "Data Saved!");`,
+                        options: ['A) Compiles but does nothing', 'B) Displays dialog box', 'C) Runtime error', 'D) Needs JFrame first'],
+                        correct: 1,
+                        explanation: 'Shows a message dialog box.',
+                        language: 'java'
+                    },
+                    {
+                        id: 17,
+                        text: 'What is output?',
+                        code: `PreparedStatement ps = con.prepareStatement(
+        "DELETE FROM emp WHERE id=?");
+        ps.setInt(1,999);
+        System.out.println(ps.executeUpdate());`,
+                        options: ['A) 1', 'B) 0', 'C) Exception', 'D) null'],
+                        correct: 1,
+                        explanation: '0 rows affected when condition doesn\'t match.',
+                        language: 'java'
+                    },
+                    {
+                        id: 18,
+                        text: 'Which is the correct order for database operation in a Swing button event?',
+                        options: ['A) Connect → Prepare → Execute → Close', 'B) Prepare → Execute → Connect → Close', 'C) Execute → Close → Connect', 'D) Close → Connect → Execute'],
+                        correct: 0,
+                        explanation: 'Proper order: connect to DB, prepare statement, execute, close resources.',
+                        language: 'java'
+                    },
+                    {
+                        id: 19,
+                        text: 'What happens if DriverManager.getConnection() fails?',
+                        options: ['A) returns null', 'B) throws SQLException', 'C) hangs', 'D) prints warning'],
+                        correct: 1,
+                        explanation: 'Connection failure throws SQLException.',
+                        language: 'java'
+                    },
+                    {
+                        id: 20,
+                        text: 'Output?',
+                        code: `JFrame f = new JFrame("Form");
+        f.add(new JLabel("Saved"));
+        f.setVisible(true);
+        System.out.println("Done");`,
+                        options: ['A) Done', 'B) Saved', 'C) Done + GUI window', 'D) Error'],
+                        correct: 2,
+                        explanation: 'GUI shown and console output prints "Done".',
+                        language: 'java'
+                    }
+                ]
+            }
+        };
+        // Initialize the dashboard function
         function initializeDashboard() {
             const dashboard = document.querySelector('.dashboard');
             dashboard.innerHTML = '';
             
+            // Add week cards
             weeksData.forEach(week => {
                 const javaQuestions = week.questions.filter(q => q.language === 'java').length;
                 const cQuestions = week.questions.filter(q => q.language === 'c').length;
                 
-                // Calculate progress from localStorage
                 const progress = getWeekProgress(week.id);
                 const progressPercent = week.questions.length > 0 ? (progress.completed / week.questions.length) * 100 : 0;
                 const accuracy = progress.completed > 0 ? (progress.correct / progress.completed) * 100 : 0;
@@ -2238,483 +4131,549 @@ public class DisplayProducts {
                 dashboard.appendChild(weekCard);
             });
             
-            updateScoreBoard();
-        }
-
-    // Global variable to track current week
-    let currentWeekId = null;
-
-    // Initialize the dashboard
-    function initializeDashboard() {
-        const dashboard = document.querySelector('.dashboard');
-        dashboard.innerHTML = '';
-        
-        weeksData.forEach(week => {
-            const javaQuestions = week.questions.filter(q => q.language === 'java').length;
-            const cQuestions = week.questions.filter(q => q.language === 'c').length;
-            
-            // Calculate progress from localStorage
-            const progress = getWeekProgress(week.id);
-            const progressPercent = week.questions.length > 0 ? (progress.completed / week.questions.length) * 100 : 0;
-            const accuracy = progress.completed > 0 ? (progress.correct / progress.completed) * 100 : 0;
-            
-            const weekCard = document.createElement('div');
-            weekCard.className = `week-card ${week.questions[0]?.language || 'java'}`;
-            weekCard.innerHTML = `
-                <h3>${week.name}
-                    <span class="language-badge java-badge">Java: ${javaQuestions}</span>
-                    ${cQuestions > 0 ? `<span class="language-badge c-badge">C: ${cQuestions}</span>` : ''}
+            // Add Extra Questions card
+            const extraCard = document.createElement('div');
+            extraCard.className = 'week-card java';
+            const totalExtraQuestions = Object.values(extraQuestionsData).reduce((sum, topic) => sum + topic.questions.length, 0);
+            extraCard.innerHTML = `
+                <h3>Extra Topic Questions
+                    <span class="language-badge java-badge">Java: ${totalExtraQuestions}</span>
                 </h3>
                 <div class="progress">
-                    <div class="progress-bar" style="width: ${progressPercent}%"></div>
+                    <div class="progress-bar" style="width: 0%"></div>
                 </div>
                 <div class="stats">
-                    <span>${progress.completed}/${week.questions.length} completed</span>
-                    <span>${accuracy.toFixed(0)}% accuracy</span>
+                    <span>0/${totalExtraQuestions} completed</span>
+                    <span>0% accuracy</span>
                 </div>
             `;
             
-            weekCard.addEventListener('click', () => {
-                showSection(week.id);
-                renderWeekQuestions(week.id);
+            extraCard.addEventListener('click', () => {
+                showSection('extra-questions');
+                renderExtraQuestions();
             });
             
-            dashboard.appendChild(weekCard);
-        });
-        
-        updateScoreBoard();
-    }
+            dashboard.appendChild(extraCard);
+            
+            updateScoreBoard();
+        }
 
-    // Render questions for a specific week - FIXED VERSION
-    function renderWeekQuestions(weekId) {
-        // Clear any existing content and reset
-        const section = document.getElementById(weekId);
-        section.innerHTML = '';
-        
-        const week = weeksData.find(w => w.id === weekId);
-        if (!week) return;
-        
-        // Set current week
-        currentWeekId = weekId;
+        // Progress tracking functions
+        function getWeekProgress(weekId) {
+            const progress = JSON.parse(localStorage.getItem(`progress-${weekId}`)) || {
+                completed: 0,
+                correct: 0,
+                answers: {},
+                correctAnswers: {}
+            };
+            return progress;
+        }
 
-        // Find current week index
-        const currentWeekIndex = weeksData.findIndex(w => w.id === weekId);
-        const hasPreviousWeek = currentWeekIndex > 0;
-        const hasNextWeek = currentWeekIndex < weeksData.length - 1;
+        function updateScoreBoard() {
+            let totalQuestions = 0;
+            let totalCompleted = 0;
+            let totalCorrect = 0;
+            
+            weeksData.forEach(week => {
+                totalQuestions += week.questions.length;
+                const progress = getWeekProgress(week.id);
+                totalCompleted += progress.completed;
+                totalCorrect += progress.correct;
+            });
+            
+            const accuracy = totalCompleted > 0 ? (totalCorrect / totalCompleted) * 100 : 0;
+            
+            const totalQuestionsElem = document.getElementById('total-questions');
+            const completedElem = document.getElementById('completed');
+            const correctElem = document.getElementById('correct');
+            const accuracyElem = document.getElementById('accuracy');
+            
+            if (totalQuestionsElem) totalQuestionsElem.textContent = totalQuestions;
+            if (completedElem) completedElem.textContent = totalCompleted;
+            if (correctElem) correctElem.textContent = totalCorrect;
+            if (accuracyElem) accuracyElem.textContent = `${accuracy.toFixed(1)}%`;
+        }
 
-        const practiceArea = document.createElement('div');
-        practiceArea.className = 'practice-area';
-        practiceArea.innerHTML = `
-            <div class="question-header">
+        // Show section function
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const targetLink = document.querySelector(`.nav-link[data-target="${sectionId}"]`);
+            if (targetLink) {
+                targetLink.classList.add('active');
+            }
+            
+            // If showing extra questions, render them
+            if (sectionId === 'extra-questions') {
+                renderExtraQuestions();
+            }
+        }
+
+        // Render week questions function
+        function renderWeekQuestions(weekId) {
+            const week = weeksData.find(w => w.id === weekId);
+            if (!week) return;
+            
+            const container = document.getElementById(weekId);
+            if (!container) return;
+            
+            container.innerHTML = `
                 <h2>${week.name}</h2>
-                <div class="question-navigation">
-                    <button class="btn-secondary" id="prev-week-${weekId}">Previous Week</button>
-                    <button class="btn-secondary" id="next-week-${weekId}">Next Week</button>    
+                <p>Complete all ${week.questions.length} questions to master this week's concepts.</p>
+                
+                <div class="practice-area">
+                    <div class="question-header">
+                        <h3>${week.name} - ${week.questions.length} Questions</h3>
+                    </div>
+                    <div class="question-counter">${week.questions.length} Questions</div>
+                    <div class="quick-nav" id="nav-${weekId}">
+                        ${week.questions.map((_, index) => 
+                            `<button class="nav-btn" data-index="${index}">${index + 1}</button>`
+                        ).join('')}
+                    </div>
+                    <div id="questions-${weekId}">
+                        ${week.questions.map((question, index) => `
+                            <div class="question-container" id="question-${weekId}-${index}" style="${index > 0 ? 'display: none;' : ''}">
+                                <div class="question-text">${question.id}. ${question.text}</div>
+                                ${question.code ? `<div class="code-snippet">${question.code}</div>` : ''}
+                                <div class="options">
+                                    ${question.options.map((option, optIndex) => `
+                                        <div class="option" data-index="${optIndex}">${option}</div>
+                                    `).join('')}
+                                </div>
+                                <div class="explanation">
+                                    <h4>Explanation</h4>
+                                    <p>${question.explanation}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="controls">
+                        <button class="btn-secondary" id="prev-${weekId}">Previous</button>
+                        <button class="btn-reset" id="reset-${weekId}">Reset</button>
+                        <button class="btn-primary" id="check-${weekId}">Check Answer</button>
+                        <button class="btn-primary" id="next-${weekId}">Next</button>
+                    </div>
                 </div>
-            </div>
-            <div class="question-counter" id="question-counter-${weekId}">Question 1 of ${week.questions.length}</div>
-            <div class="attempt-counter" id="attempt-counter-${weekId}">Attempts remaining: 3</div>
-            <div class="quick-nav" id="quick-nav-${weekId}">
-                ${week.questions.map((_, index) => `<button class="nav-btn" data-index="${index}">${index + 1}</button>`).join('')}
-            </div>
-            <div id="questions-container-${weekId}">
-                ${week.questions.map((question, index) => `
-                    <div class="question-container" id="question-${weekId}-${index}" style="${index > 0 ? 'display: none;' : ''}">
-                        <div class="question-text">${question.id}. ${question.text}</div>
-                        ${question.code ? `<div class="code-snippet">${question.code}</div>` : ''}
-                        <div class="options">
-                            ${question.options.map((option, optIndex) => `
-                                <div class="option" data-index="${optIndex}">${option}</div>
+            `;
+            
+            setupWeekNavigation(weekId);
+        }
+
+        // Setup navigation for weekly questions
+        function setupWeekNavigation(weekId) {
+            const week = weeksData.find(w => w.id === weekId);
+            if (!week) return;
+            
+            let currentQuestion = 0;
+            
+            function showQuestion(index) {
+                const questionsContainer = document.getElementById(`questions-${weekId}`);
+                if (!questionsContainer) return;
+                
+                const containers = questionsContainer.querySelectorAll('.question-container');
+                containers.forEach((container, i) => {
+                    container.style.display = i === index ? 'block' : 'none';
+                });
+                currentQuestion = index;
+                
+                updateQuickNav(weekId, index);
+            }
+            
+            function updateQuickNav(weekId, currentIndex) {
+                const quickNav = document.getElementById(`nav-${weekId}`);
+                if (quickNav) {
+                    const navBtns = quickNav.querySelectorAll('.nav-btn');
+                    navBtns.forEach((btn, index) => {
+                        btn.classList.remove('current');
+                        if (index === currentIndex) {
+                            btn.classList.add('current');
+                        }
+                    });
+                }
+            }
+            
+            // Previous button
+            const prevBtn = document.getElementById(`prev-${weekId}`);
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (currentQuestion > 0) {
+                        showQuestion(currentQuestion - 1);
+                    }
+                });
+            }
+            
+            // Next button
+            const nextBtn = document.getElementById(`next-${weekId}`);
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if (currentQuestion < week.questions.length - 1) {
+                        showQuestion(currentQuestion + 1);
+                    }
+                });
+            }
+            
+            // Check answer button
+            const checkBtn = document.getElementById(`check-${weekId}`);
+            if (checkBtn) {
+                checkBtn.addEventListener('click', () => {
+                    const currentContainer = document.getElementById(`question-${weekId}-${currentQuestion}`);
+                    if (!currentContainer) return;
+                    
+                    const selectedOption = currentContainer.querySelector('.option.selected');
+                    
+                    if (!selectedOption) {
+                        alert('Please select an answer first!');
+                        return;
+                    }
+                    
+                    const selectedIndex = parseInt(selectedOption.getAttribute('data-index'));
+                    const isCorrect = selectedIndex === week.questions[currentQuestion].correct;
+                    const explanation = currentContainer.querySelector('.explanation');
+                    
+                    // Show correct/incorrect styling
+                    const options = currentContainer.querySelectorAll('.option');
+                    options.forEach((option, index) => {
+                        if (index === week.questions[currentQuestion].correct) {
+                            option.classList.add('correct');
+                        } else if (option === selectedOption && !isCorrect) {
+                            option.classList.add('incorrect');
+                        }
+                    });
+                    
+                    // Show explanation
+                    if (explanation) {
+                        explanation.style.display = 'block';
+                    }
+                    
+                    // Update progress
+                    const progress = getWeekProgress(weekId);
+                    if (!progress.answers[currentQuestion]) {
+                        progress.completed++;
+                        if (isCorrect) {
+                            progress.correct++;
+                        }
+                        progress.answers[currentQuestion] = selectedIndex;
+                        progress.correctAnswers[currentQuestion] = isCorrect;
+                        localStorage.setItem(`progress-${weekId}`, JSON.stringify(progress));
+                        updateScoreBoard();
+                        initializeDashboard(); // Refresh dashboard
+                    }
+                });
+            }
+            
+            // Reset button
+            const resetBtn = document.getElementById(`reset-${weekId}`);
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    const container = document.getElementById(`question-${weekId}-${currentQuestion}`);
+                    if (container) {
+                        container.querySelectorAll('.option').forEach(opt => {
+                            opt.classList.remove('selected', 'correct', 'incorrect');
+                        });
+                        const explanation = container.querySelector('.explanation');
+                        if (explanation) {
+                            explanation.style.display = 'none';
+                        }
+                    }
+                });
+            }
+            
+            // Quick nav
+            const quickNav = document.getElementById(`nav-${weekId}`);
+            if (quickNav) {
+                quickNav.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('nav-btn')) {
+                        const index = parseInt(e.target.getAttribute('data-index'));
+                        showQuestion(index);
+                    }
+                });
+            }
+            
+            // Option selection
+            const questionsContainer = document.getElementById(`questions-${weekId}`);
+            if (questionsContainer) {
+                questionsContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('option')) {
+                        const option = e.target;
+                        const container = option.closest('.question-container');
+                        
+                        // Remove selected class from all options in this question
+                        container.querySelectorAll('.option').forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        
+                        // Add selected class to clicked option
+                        option.classList.add('selected');
+                    }
+                });
+            }
+            
+            // Initialize first question
+            showQuestion(0);
+        }
+
+        // Render extra questions function
+        function renderExtraQuestions() {
+            // Render each topic
+            Object.keys(extraQuestionsData).forEach(topicId => {
+                const container = document.getElementById(`extra-${topicId}-container`);
+                if (container) {
+                    const topic = extraQuestionsData[topicId];
+                    container.innerHTML = `
+                        <div class="question-counter">${topic.questions.length} Questions</div>
+                        <div class="quick-nav" id="extra-nav-${topicId}">
+                            ${topic.questions.map((_, index) => 
+                                `<button class="nav-btn" data-index="${index}">${index + 1}</button>`
+                            ).join('')}
+                        </div>
+                        <div id="extra-questions-${topicId}">
+                            ${topic.questions.map((question, index) => `
+                                <div class="question-container" id="extra-question-${topicId}-${index}" style="${index > 0 ? 'display: none;' : ''}">
+                                    <div class="question-text">${question.id}. ${question.text}</div>
+                                    ${question.code ? `<div class="code-snippet">${question.code}</div>` : ''}
+                                    <div class="options">
+                                        ${question.options.map((option, optIndex) => `
+                                            <div class="option" data-index="${optIndex}">${option}</div>
+                                        `).join('')}
+                                    </div>
+                                    <div class="explanation">
+                                        <h4>Explanation</h4>
+                                        <p>${question.explanation}</p>
+                                    </div>
+                                </div>
                             `).join('')}
                         </div>
-                        <div class="explanation">
-                            <h4>Explanation</h4>
-                            <p>${question.explanation}</p>
+                        <div class="controls">
+                            <button class="btn-secondary" id="extra-prev-${topicId}">Previous</button>
+                            <button class="btn-reset" id="extra-reset-${topicId}">Reset</button>
+                            <button class="btn-primary" id="extra-check-${topicId}">Check Answer</button>
+                            <button class="btn-primary" id="extra-next-${topicId}">Next</button>
                         </div>
-                    </div>
-                `).join('')}
-            </div>
-            <div class="controls">
-                <button class="btn-secondary" id="prev-question-${weekId}">Previous Question</button>
-                <button class="btn-reset" id="reset-question-${weekId}">Reset Question</button>
-                <button class="btn-primary" id="check-answer-${weekId}">Check Answer</button>
-                <button class="btn-primary" id="next-question-${weekId}">Next Question</button>
-            </div>
-        `;
-        
-        section.appendChild(practiceArea);
-        
-        // Add event listeners for the newly created elements
-        setupQuestionNavigation(weekId);
-    }
-
-    // Set up question navigation for a week - FIXED VERSION
-    function setupQuestionNavigation(weekId) {
-        const week = weeksData.find(w => w.id === weekId);
-        if (!week) return;
-        
-        let currentQuestion = 0;
-        let attempts = 3;
-        
-        // Update question counter
-        function updateCounter() {
-            const counter = document.getElementById(`question-counter-${weekId}`);
-            const attemptCounter = document.getElementById(`attempt-counter-${weekId}`);
-            if (counter && attemptCounter) {
-                counter.textContent = `Question ${currentQuestion + 1} of ${week.questions.length}`;
-                attemptCounter.textContent = `Attempts remaining: ${attempts}`;
-            }
+                    `;
+                    
+                    setupExtraTopicNavigation(topicId);
+                }
+            });
         }
-        
-        // Update quick nav buttons
-        function updateQuickNav() {
-            const progress = getWeekProgress(weekId);
-            const quickNav = document.getElementById(`quick-nav-${weekId}`);
-            if (quickNav) {
-                const navBtns = quickNav.querySelectorAll('.nav-btn');
-                navBtns.forEach((btn, index) => {
-                    btn.classList.remove('correct', 'incorrect', 'current');
-                    if (index === currentQuestion) {
-                        btn.classList.add('current');
-                    }
-                    if (progress.answers[index] !== undefined) {
-                        if (progress.correctAnswers && progress.correctAnswers[index]) {
-                            btn.classList.add('correct');
-                        } else {
-                            btn.classList.add('incorrect');
+
+        // Setup navigation for extra topics
+        function setupExtraTopicNavigation(topicId) {
+            const topic = extraQuestionsData[topicId];
+            if (!topic) return;
+            
+            let currentQuestion = 0;
+            
+            function showQuestion(index) {
+                const questionsContainer = document.getElementById(`extra-questions-${topicId}`);
+                if (!questionsContainer) return;
+                
+                const containers = questionsContainer.querySelectorAll('.question-container');
+                containers.forEach((container, i) => {
+                    container.style.display = i === index ? 'block' : 'none';
+                });
+                currentQuestion = index;
+                
+                updateExtraQuickNav(topicId, index);
+            }
+            
+            function updateExtraQuickNav(topicId, currentIndex) {
+                const quickNav = document.getElementById(`extra-nav-${topicId}`);
+                if (quickNav) {
+                    const navBtns = quickNav.querySelectorAll('.nav-btn');
+                    navBtns.forEach((btn, index) => {
+                        btn.classList.remove('current');
+                        if (index === currentIndex) {
+                            btn.classList.add('current');
                         }
+                    });
+                }
+            }
+            
+            // Previous button
+            const prevBtn = document.getElementById(`extra-prev-${topicId}`);
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (currentQuestion > 0) {
+                        showQuestion(currentQuestion - 1);
                     }
                 });
             }
-        }
-        
-        // Show specific question
-        function showQuestion(index) {
-            const questionsContainer = document.getElementById(`questions-container-${weekId}`);
-            if (!questionsContainer) return;
             
-            const containers = questionsContainer.querySelectorAll('.question-container');
-            containers.forEach((container, i) => {
-                container.style.display = i === index ? 'block' : 'none';
-            });
-            currentQuestion = index;
-            updateCounter();
-            updateQuickNav();
+            // Next button
+            const nextBtn = document.getElementById(`extra-next-${topicId}`);
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if (currentQuestion < topic.questions.length - 1) {
+                        showQuestion(currentQuestion + 1);
+                    }
+                });
+            }
             
-            // Load persistent selection
-            loadSelection(index);
-            
-            // Clear any previous explanations
-            containers.forEach(container => {
-                const explanation = container.querySelector('.explanation');
-                if (explanation) {
-                    explanation.style.display = 'none';
-                }
-            });
-        }
-        
-        // Load saved selection
-        function loadSelection(index) {
-            const saved = localStorage.getItem(`selection-${weekId}-${index}`);
-            if (saved) {
-                const selectedIndex = parseInt(saved);
-                const container = document.getElementById(`question-${weekId}-${index}`);
-                if (container) {
-                    const options = container.querySelectorAll('.option');
-                    options.forEach((opt, i) => {
-                        opt.classList.remove('selected');
-                        if (i === selectedIndex) {
-                            opt.classList.add('selected');
+            // Check answer button
+            const checkBtn = document.getElementById(`extra-check-${topicId}`);
+            if (checkBtn) {
+                checkBtn.addEventListener('click', () => {
+                    const currentContainer = document.getElementById(`extra-question-${topicId}-${currentQuestion}`);
+                    if (!currentContainer) return;
+                    
+                    const selectedOption = currentContainer.querySelector('.option.selected');
+                    
+                    if (!selectedOption) {
+                        alert('Please select an answer first!');
+                        return;
+                    }
+                    
+                    const selectedIndex = parseInt(selectedOption.getAttribute('data-index'));
+                    const isCorrect = selectedIndex === topic.questions[currentQuestion].correct;
+                    const explanation = currentContainer.querySelector('.explanation');
+                    
+                    // Show correct/incorrect styling
+                    const options = currentContainer.querySelectorAll('.option');
+                    options.forEach((option, index) => {
+                        if (index === topic.questions[currentQuestion].correct) {
+                            option.classList.add('correct');
+                        } else if (option === selectedOption && !isCorrect) {
+                            option.classList.add('incorrect');
                         }
                     });
-                }
-            }
-        }
-        
-        // Save selection
-        function saveSelection(index, selectedIndex) {
-            localStorage.setItem(`selection-${weekId}-${index}`, selectedIndex);
-        }
-
-        // PREVIOUS WEEK BUTTON - FIXED
-        const prevWeekBtn = document.getElementById(`prev-week-${weekId}`);
-        if (prevWeekBtn) {
-            prevWeekBtn.addEventListener('click', () => {
-                const currentWeekIndex = weeksData.findIndex(w => w.id === weekId);
-                if (currentWeekIndex > 0) {
-                    const prevWeekId = weeksData[currentWeekIndex - 1].id;
-                    showSection(prevWeekId);
-                    renderWeekQuestions(prevWeekId);
-                }
-            });
-        }
-
-        // NEXT WEEK BUTTON - FIXED
-        const nextWeekBtn = document.getElementById(`next-week-${weekId}`);
-        if (nextWeekBtn) {
-            nextWeekBtn.addEventListener('click', () => {
-                const currentWeekIndex = weeksData.findIndex(w => w.id === weekId);
-                if (currentWeekIndex < weeksData.length - 1) {
-                    const nextWeekId = weeksData[currentWeekIndex + 1].id;
-                    showSection(nextWeekId);
-                    renderWeekQuestions(nextWeekId);
-                }
-            });
-        }
-        
-        // Previous question button
-        const prevBtn = document.getElementById(`prev-question-${weekId}`);
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                if (currentQuestion > 0) {
-                    showQuestion(currentQuestion - 1);
-                }
-            });
-        }
-        
-        // Next question button
-        const nextBtn = document.getElementById(`next-question-${weekId}`);
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                if (currentQuestion < week.questions.length - 1) {
-                    showQuestion(currentQuestion + 1);
-                }
-            });
-        }
-        
-        // Reset question button
-        const resetBtn = document.getElementById(`reset-question-${weekId}`);
-        if (resetBtn) {
-            resetBtn.addEventListener('click', () => {
-                const container = document.getElementById(`question-${weekId}-${currentQuestion}`);
-                if (container) {
-                    container.querySelectorAll('.option').forEach(opt => {
-                        opt.classList.remove('selected', 'correct', 'incorrect');
-                    });
-                    const explanation = container.querySelector('.explanation');
+                    
+                    // Show explanation
                     if (explanation) {
-                        explanation.style.display = 'none';
-                    }
-                    localStorage.removeItem(`selection-${weekId}-${currentQuestion}`);
-                    attempts = 3;
-                    updateCounter();
-                }
-            });
-        }
-        
-        // Check answer button
-        const checkBtn = document.getElementById(`check-answer-${weekId}`);
-        if (checkBtn) {
-            checkBtn.addEventListener('click', () => {
-                // Check if we're still on the correct week
-                if (currentWeekId !== weekId) return;
-                
-                const currentContainer = document.getElementById(`question-${weekId}-${currentQuestion}`);
-                if (!currentContainer) return;
-                
-                const selectedOption = currentContainer.querySelector('.option.selected');
-                
-                if (!selectedOption) {
-                    alert('Please select an answer first!');
-                    return;
-                }
-                
-                if (attempts <= 0) {
-                    alert('No attempts remaining for this question!');
-                    return;
-                }
-                
-                attempts--;
-                updateCounter();
-                
-                const selectedIndex = parseInt(selectedOption.getAttribute('data-index'));
-                const isCorrect = selectedIndex === week.questions[currentQuestion].correct;
-                const explanation = currentContainer.querySelector('.explanation');
-                
-                // Show correct/incorrect styling
-                const options = currentContainer.querySelectorAll('.option');
-                options.forEach((option, index) => {
-                    if (index === week.questions[currentQuestion].correct) {
-                        option.classList.add('correct');
-                    } else if (option === selectedOption && !isCorrect) {
-                        option.classList.add('incorrect');
+                        explanation.style.display = 'block';
                     }
                 });
-                
-                // Show explanation
-                if (explanation) {
-                    explanation.style.display = 'block';
-                }
-                
-                // Update progress in localStorage
-                updateProgress(weekId, currentQuestion, isCorrect);
-                
-                // Update dashboard
-                initializeDashboard();
-                updateQuickNav();
-            });
-        }
-        
-        // OPTION SELECTION
-        const questionsContainer = document.getElementById(`questions-container-${weekId}`);
-        if (questionsContainer) {
-            questionsContainer.addEventListener('click', function(e) {
-                // Check if we're still on the correct week
-                if (currentWeekId !== weekId) return;
-                
-                if (e.target.classList.contains('option')) {
-                    const option = e.target;
-                    const container = option.closest('.question-container');
-                    if (!container) return;
-                    
-                    const questionIndex = parseInt(container.id.split('-')[2]); // Get index from question-weekId-index
-                    
-                    // Remove selected class from all options in this question
-                    container.querySelectorAll('.option').forEach(opt => {
-                        opt.classList.remove('selected');
-                    });
-                    
-                    // Add selected class to clicked option
-                    option.classList.add('selected');
-                    
-                    // Save selection
-                    const selectedIndex = parseInt(option.getAttribute('data-index'));
-                    saveSelection(questionIndex, selectedIndex);
-                }
-            });
-        }
-        
-        // Quick nav buttons
-        const quickNav = document.getElementById(`quick-nav-${weekId}`);
-        if (quickNav) {
-            quickNav.addEventListener('click', function(e) {
-                // Check if we're still on the correct week
-                if (currentWeekId !== weekId) return;
-                
-                if (e.target.classList.contains('nav-btn')) {
-                    const index = parseInt(e.target.getAttribute('data-index'));
-                    showQuestion(index);
-                }
-            });
-        }
-        
-        // Initialize first question
-        showQuestion(0);
-    }
-
-    // Progress tracking functions
-    function getWeekProgress(weekId) {
-        const progress = JSON.parse(localStorage.getItem(`progress-${weekId}`)) || {
-            completed: 0,
-            correct: 0,
-            answers: {},
-            correctAnswers: {}
-        };
-        return progress;
-    }
-
-    function updateProgress(weekId, questionIndex, isCorrect) {
-        const progress = getWeekProgress(weekId);
-        
-        // Only update if this question wasn't answered before
-        if (progress.answers[questionIndex] === undefined) {
-            progress.answers[questionIndex] = true;
-            progress.correctAnswers[questionIndex] = isCorrect;
-            progress.completed++;
-            if (isCorrect) {
-                progress.correct++;
             }
-            localStorage.setItem(`progress-${weekId}`, JSON.stringify(progress));
-        }
-    }
-
-    // Update the score board with totals
-    function updateScoreBoard() {
-        let totalQuestions = 0;
-        let totalCompleted = 0;
-        let totalCorrect = 0;
-        
-        weeksData.forEach(week => {
-            totalQuestions += week.questions.length;
-            const progress = getWeekProgress(week.id);
-            totalCompleted += progress.completed;
-            totalCorrect += progress.correct;
-        });
-        
-        const accuracy = totalCompleted > 0 ? (totalCorrect / totalCompleted) * 100 : 0;
-        
-        document.getElementById('total-questions').textContent = totalQuestions;
-        document.getElementById('completed').textContent = totalCompleted;
-        document.getElementById('correct').textContent = totalCorrect;
-        document.getElementById('accuracy').textContent = `${accuracy.toFixed(1)}%`;
-    }
-
-    // Show a specific section
-    function showSection(sectionId) {
-        // Hide all sections
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.classList.remove('active');
-        });
-        
-        // Show the selected section
-        document.getElementById(sectionId).classList.add('active');
-        
-        // Update navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-        });
-        
-        document.querySelector(`.nav-link[data-target="${sectionId}"]`).classList.add('active');
-    }
-
-    // Language filter functionality
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
             
-            const filter = this.getAttribute('data-filter');
-            filterDashboard(filter);
-        });
-    });
-
-    function filterDashboard(filter) {
-        const cards = document.querySelectorAll('.week-card');
-        cards.forEach(card => {
-            if (filter === 'all') {
-                card.style.display = 'block';
-            } else if (filter === 'java') {
-                card.style.display = card.classList.contains('java') ? 'block' : 'none';
-            } else if (filter === 'c') {
-                card.style.display = card.classList.contains('c-programming') ? 'block' : 'none';
+            // Reset button
+            const resetBtn = document.getElementById(`extra-reset-${topicId}`);
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    const container = document.getElementById(`extra-question-${topicId}-${currentQuestion}`);
+                    if (container) {
+                        container.querySelectorAll('.option').forEach(opt => {
+                            opt.classList.remove('selected', 'correct', 'incorrect');
+                        });
+                        const explanation = container.querySelector('.explanation');
+                        if (explanation) {
+                            explanation.style.display = 'none';
+                        }
+                    }
+                });
             }
-        });
-    }
-
-    // Navigation links
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = this.getAttribute('data-target');
-            showSection(target);
             
-            if (target !== 'dashboard') {
-                const weekId = target;
-                renderWeekQuestions(weekId);
+            // Quick nav
+            const quickNav = document.getElementById(`extra-nav-${topicId}`);
+            if (quickNav) {
+                quickNav.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('nav-btn')) {
+                        const index = parseInt(e.target.getAttribute('data-index'));
+                        showQuestion(index);
+                    }
+                });
             }
+            
+            // Option selection
+            const questionsContainer = document.getElementById(`extra-questions-${topicId}`);
+            if (questionsContainer) {
+                questionsContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('option')) {
+                        const option = e.target;
+                        const container = option.closest('.question-container');
+                        
+                        // Remove selected class from all options in this question
+                        container.querySelectorAll('.option').forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        
+                        // Add selected class to clicked option
+                        option.classList.add('selected');
+                    }
+                });
+            }
+            
+            // Initialize first question
+            showQuestion(0);
+        }
+
+        // Language filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+            
+            // Navbar toggle
+            const navToggle = document.getElementById('nav-toggle');
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    const navMenu = document.getElementById('nav-menu');
+                    if (navMenu) {
+                        navMenu.classList.toggle('active');
+                    }
+                });
+            }
+            
+            // Navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('data-target');
+                    showSection(target);
+                    
+                    // If it's a week section, render the questions
+                    if (target.startsWith('week')) {
+                        renderWeekQuestions(target);
+                    }
+                });
+            });
+
+            // Language filter
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    filterDashboard(filter);
+                });
+            });
         });
-    });
 
-    // Navbar toggle
-    document.getElementById('nav-toggle').addEventListener('click', function() {
-        const navMenu = document.getElementById('nav-menu');
-        navMenu.classList.toggle('active');
-    });
-
-    // Initialize the application
-    document.addEventListener('DOMContentLoaded', function() {
-        initializeDashboard();
-    });
+        // Filter dashboard function
+        function filterDashboard(filter) {
+            const dashboard = document.querySelector('.dashboard');
+            const weekCards = dashboard.querySelectorAll('.week-card');
+            
+            weekCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                } else if (filter === 'java') {
+                    if (card.classList.contains('java')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                } else if (filter === 'c') {
+                    if (card.classList.contains('c-programming')) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
